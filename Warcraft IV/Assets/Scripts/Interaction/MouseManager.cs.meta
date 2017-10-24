@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 861feb6af43917c44b1e3d832cf05ed0
+timeCreated: 1507783542
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - childCamera: {fileID: 1445375011544618, guid: bb6394179c7ffbc4c9a3e524573e8586,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
