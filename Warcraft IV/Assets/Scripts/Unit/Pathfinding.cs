@@ -10,6 +10,21 @@ public class Pathfinding : MonoBehaviour
         Coroutine routine;
         float maxMovementSpeed;
 
+        public void SendToTarget (Vector3 target, Vector3 offset)
+        {
+                offset = gameObject.transform.position - offset;
+
+                if (routine != null)
+                {
+                        StopCoroutine(routine);
+                }
+
+                obstacle.enabled = false;
+                agent.enabled = true;
+
+                routine = StartCoroutine(Moving(target + offset));
+        }
+
         public void SendToTarget (Vector3 target)
         {
                 if (routine != null)
@@ -20,11 +35,7 @@ public class Pathfinding : MonoBehaviour
                 obstacle.enabled = false;
                 agent.enabled = true;
 
-                agent.SetDestination(target);
-
-                float time = Vector3.Distance(gameObject.transform.position, target) / agent.speed;
-
-                routine = StartCoroutine(Moving(time));
+                routine = StartCoroutine(Moving(target));
         }
 
         public float Speed
@@ -44,33 +55,39 @@ public class Pathfinding : MonoBehaviour
                 agent = gameObject.GetComponent<NavMeshAgent>();
                 CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
                 maxMovementSpeed = unit.MovementSpeed;
-                agent.angularSpeed = Mathf.Pow(unit.MovementSpeed, unit.MovementSpeed);
+                agent.angularSpeed = 50000.0f;
                 agent.speed = unit.MovementSpeed;
-                agent.acceleration = unit.MovementSpeed;
-                agent.radius = Mathf.Pow(collider.radius, collider.radius);
+                agent.acceleration = 10.0f;
+                agent.stoppingDistance = 0.0f;
+                agent.radius = collider.radius;
                 agent.avoidancePriority = 99;
+                obstacle.shape = NavMeshObstacleShape.Capsule;
+                obstacle.radius = collider.radius;
+                obstacle.height = collider.height;
+                obstacle.center = collider.center;
 	}
 
-        IEnumerator Moving(float time)
+        IEnumerator Moving (Vector3 target)
         {
                 Animator animation = gameObject.GetComponent<Animator>();
-                if (agent.speed <= maxMovementSpeed)
+                Vector3 unitPosition = new Vector3(gameObject.transform.position.x, target.y, gameObject.transform.position.z);
+
+                animation.SetBool("moving", true);
+
+                while(Vector3.Distance(unitPosition, target) > agent.stoppingDistance)
                 {
-                        animation.SetBool("walking", true);
-                        animation.SetBool("running", false);
+                        unitPosition = new Vector3(gameObject.transform.position.x, target.y, gameObject.transform.position.z);
+                        agent.SetDestination(target);
+
+                        if(Vector3.Distance(unitPosition, target) <= agent.stoppingDistance)
+                        {
+                                animation.SetBool("moving", false);
+
+                                agent.enabled = false;
+                                obstacle.enabled = true;
+                        }
+
+                        yield return null;
                 }
-                else if (agent.speed > maxMovementSpeed)
-                {
-                        animation.SetBool("walking", false);
-                        animation.SetBool("running", true);
-                }   
-
-                yield return new WaitForSeconds(time);
-
-                animation.SetBool("walking", false);
-                animation.SetBool("running", false);
-
-                agent.enabled = false;
-                obstacle.enabled = true;
         }
 }

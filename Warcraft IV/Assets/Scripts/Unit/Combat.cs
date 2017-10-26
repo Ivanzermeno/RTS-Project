@@ -25,6 +25,10 @@ public class Combat : MonoBehaviour
 
         public void Aggression(GameObject target)
         {
+                Vector3 direction = (target.transform.position - gameObject.transform.position).normalized;
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 180.0f);
+
                 if (routine == null)
                 {
                         routine = StartCoroutine(Attacking(target));
@@ -50,10 +54,6 @@ public class Combat : MonoBehaviour
 
                 if (Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position) <= range)
                 {
-                        Vector3 direction = (target.transform.position - gameObject.transform.position).normalized;
-                        Quaternion lookRotation = Quaternion.LookRotation(direction);
-                        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 180.0f);
-
                         animation.SetTrigger("attack");
 
                         otherHealth.HitPoints = damage;

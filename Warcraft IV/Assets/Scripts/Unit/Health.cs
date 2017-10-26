@@ -29,9 +29,9 @@ public class Health : MonoBehaviour
                 get { return hitPoints; }
                 set
                 {
-                        Animator animation = gameObject.GetComponent<Animator>();
-                        if (value > 0)
+                        if (value > 0 && gameObject.tag == "Unit")
                         {
+                                Animator animation = gameObject.GetComponent<Animator>();
                                 animation.SetTrigger("getHit");
                         }
 
@@ -43,6 +43,7 @@ public class Health : MonoBehaviour
                         else if (hitPoints <= 0)
                         {
                                 StopCoroutine(routine);
+                                Animator animation = gameObject.GetComponent<Animator>();
                                 animation.SetTrigger("dead");
                                 StartCoroutine(Death(5.0f));
                         }

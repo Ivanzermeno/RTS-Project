@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/RTS Part 9.unity
+- path: Assets/Scenes/RTS Part 12.unity
   isLoaded: 1
   isActive: 1

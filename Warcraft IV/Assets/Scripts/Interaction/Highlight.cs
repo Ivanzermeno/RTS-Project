@@ -21,15 +21,15 @@ public class Highlight : Interaction
                 CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
                 displaySelectionCircle = new GameObject("Highlight", typeof(Projector));
                 displaySelectionCircle.transform.parent = gameObject.transform;
-                displaySelectionCircle.transform.position = gameObject.transform.position + new Vector3(collider.center.x, 0.0f, collider.center.z);
+                displaySelectionCircle.transform.position = gameObject.transform.position + Vector3.up;
                 displaySelectionCircle.transform.Rotate(90.0f, 0.0f, 0.0f);
 
                 Projector projector = displaySelectionCircle.GetComponent<Projector>();
                 projector.orthographic = true;
                 projector.nearClipPlane = 0.0f;
+                projector.farClipPlane = 25.0f;
                 projector.orthographicSize = collider.radius + collider.height;
                 projector.material = Resources.Load("Neutral", typeof(Material)) as Material;
-                projector.ignoreLayers = 8;
 
                 Player player = gameObject.GetComponent<Player>();
                 if (player.Info == RTSManager.Current.Players[0])

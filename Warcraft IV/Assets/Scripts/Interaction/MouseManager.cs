@@ -20,6 +20,7 @@ public class MouseManager : MonoBehaviour
         bool unitPortrait = false;
         bool isDragSelecting = false;
         Vector3 mousePosition1;
+        Vector3 centerOffset;
         float lastClickTime;
         [SerializeField] float catchTime;
 
@@ -27,6 +28,16 @@ public class MouseManager : MonoBehaviour
         {
                 if (!EventSystem.current.IsPointerOverGameObject())
                 {
+                        if (selections.Count > 1)
+                        {
+                                centerOffset = Vector3.zero;
+                                foreach (Interactive sel in selections)
+                                {
+                                        centerOffset += sel.gameObject.transform.position;
+                                }
+                                centerOffset = centerOffset / selections.Count;
+                        }
+
                         if (Input.GetMouseButtonDown(0))
                         {
                                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -126,7 +137,15 @@ public class MouseManager : MonoBehaviour
                                                         if (unit.IsMovable)
                                                         {
                                                                 Pathfinding pathfinding = selection.gameObject.GetComponent<Pathfinding>();
-                                                                pathfinding.SendToTarget(hit.point); 
+
+                                                                if (Selections.Count > 1)
+                                                                {
+                                                                        pathfinding.SendToTarget(hit.point, centerOffset); 
+                                                                }
+                                                                else
+                                                                {
+                                                                        pathfinding.SendToTarget(hit.point); 
+                                                                }
                                                         }
                                                         if (hit.collider.tag == "Unit" || hit.collider.tag == "Building")
                                                         {
@@ -162,7 +181,7 @@ public class MouseManager : MonoBehaviour
                                 childCamera.backgroundColor = info.Info.AccentColor;
                                 childCamera.transform.parent = selections[randomUnit].transform;
                                 childCamera.transform.position = selections[randomUnit].transform.position + ((collider.center.y + collider.height) * Vector3.up) + (selections[randomUnit].transform.forward * (collider.height + collider.radius));
-                                childCamera.transform.LookAt(selections[randomUnit].transform.position + collider.center);
+                                childCamera.transform.LookAt(selections[randomUnit].transform.position + (Vector3.up * collider.center.y));
                         }
                 }
         }
