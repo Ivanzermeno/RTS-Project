@@ -471,7 +471,9 @@ GameObject:
   - component: {fileID: 195982956137992320}
   - component: {fileID: 114922160490149012}
   - component: {fileID: 114880060622731952}
+  - component: {fileID: 135076021174446270}
   - component: {fileID: 114045967562747130}
+  - component: {fileID: 54110319089094110}
   m_Layer: 0
   m_Name: HeadHunter_Red
   m_TagString: Unit
@@ -1013,6 +1015,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100060}
   m_IsPrefabParent: 1
+--- !u!54 &54110319089094110
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  serializedVersion: 2
+  m_Mass: 85
+  m_Drag: 1.5
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!114 &114043246443062588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1144,6 +1161,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &135076021174446270
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136139265950592214
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1165,7 +1194,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 100060}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

@@ -9,6 +9,7 @@ TagManager:
   - Unit
   - FogOfWar
   - Building
+  - Portrait
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Portrait
   - 
   - Map
-  - Flyzone
+  - 
   - 
   - 
   - 

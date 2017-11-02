@@ -7,6 +7,7 @@ public class Pathfinding : MonoBehaviour
 {
         NavMeshAgent agent;
         NavMeshObstacle obstacle;
+        Vector3 unitPosition;
         Coroutine routine;
         float maxMovementSpeed;
 
@@ -55,10 +56,11 @@ public class Pathfinding : MonoBehaviour
                 agent = gameObject.GetComponent<NavMeshAgent>();
                 CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
                 maxMovementSpeed = unit.MovementSpeed;
+                unitPosition = new Vector3(gameObject.transform.position.x, 0.0f, gameObject.transform.position.z);
                 agent.angularSpeed = 50000.0f;
                 agent.speed = unit.MovementSpeed;
                 agent.acceleration = 10.0f;
-                agent.stoppingDistance = 0.0f;
+                agent.stoppingDistance = 1.0f;
                 agent.radius = collider.radius;
                 agent.avoidancePriority = 99;
                 obstacle.shape = NavMeshObstacleShape.Capsule;
@@ -70,9 +72,10 @@ public class Pathfinding : MonoBehaviour
         IEnumerator Moving (Vector3 target)
         {
                 Animator animation = gameObject.GetComponent<Animator>();
-                Vector3 unitPosition = new Vector3(gameObject.transform.position.x, target.y, gameObject.transform.position.z);
+                Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
 
                 animation.SetBool("moving", true);
+                rigidbody.isKinematic = false;
 
                 while(Vector3.Distance(unitPosition, target) > agent.stoppingDistance)
                 {
@@ -82,6 +85,7 @@ public class Pathfinding : MonoBehaviour
                         if(Vector3.Distance(unitPosition, target) <= agent.stoppingDistance)
                         {
                                 animation.SetBool("moving", false);
+                                rigidbody.isKinematic = true;
 
                                 agent.enabled = false;
                                 obstacle.enabled = true;
@@ -89,5 +93,10 @@ public class Pathfinding : MonoBehaviour
 
                         yield return null;
                 }
+        }
+
+        public void Stop()
+        {
+                StopCoroutine(routine);
         }
 }

@@ -381,7 +381,9 @@ GameObject:
   - component: {fileID: 195311511025146786}
   - component: {fileID: 114957789626913724}
   - component: {fileID: 114076177187055252}
+  - component: {fileID: 135612872410413512}
   - component: {fileID: 114934492502741684}
+  - component: {fileID: 54704568417138654}
   m_Layer: 0
   m_Name: Warlock_Red
   m_TagString: Unit
@@ -833,6 +835,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100048}
   m_IsPrefabParent: 1
+--- !u!54 &54704568417138654
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100048}
+  serializedVersion: 2
+  m_Mass: 75
+  m_Drag: 1.5
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!114 &114076177187055252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -926,18 +943,18 @@ MonoBehaviour:
   costLumber: 100
   costPopulation: 2
   buildTime: 0
-  attackGround: 0
-  attackAir: 0
+  attackGround: 32
+  attackAir: 32
   manaPool: 400
   teamNumber: 0
   hitPoint: 200
   hitPointRegeneration: 1
   movementSpeed: 7
-  attackRange: 0
-  attackRangeAir: 0
-  attackSpeed: 0
-  attackSpeedAir: 0
-  visionRange: 0
+  attackRange: 25
+  attackRangeAir: 25
+  attackSpeed: 2.6
+  attackSpeedAir: 2.6
+  visionRange: 30
   manaRegeneration: 1
   armorType: 0
   attackType: 0
@@ -964,6 +981,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &135612872410413512
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136050336712972068
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -985,7 +1014,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 100048}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

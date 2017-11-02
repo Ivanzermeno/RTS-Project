@@ -29,23 +29,35 @@ public class Health : MonoBehaviour
                 get { return hitPoints; }
                 set
                 {
+                        hitPoints -= value;
                         if (value > 0 && gameObject.tag == "Unit")
                         {
                                 Animator animation = gameObject.GetComponent<Animator>();
-                                animation.SetTrigger("getHit");
+
+                                if (hitPoints > 0)
+                                {
+                                        animation.SetTrigger("getHit");
+                                }
                         }
 
-                        hitPoints -= value;
                         if (hitPoints > maxHitPoints)
                         {
                                 hitPoints = maxHitPoints;
                         }
                         else if (hitPoints <= 0)
                         {
-                                StopCoroutine(routine);
                                 Animator animation = gameObject.GetComponent<Animator>();
+
+                                gameObject.GetComponent<Combat>().enabled = false;
+                                gameObject.GetComponent<Rigidbody>().useGravity = true;
+                                gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                                gameObject.GetComponent<Highlight>().enabled = false;
+
+                                MouseManager.Current.Selections.Remove(gameObject.GetComponent<Interactive>());
+
                                 animation.SetTrigger("dead");
-                                StartCoroutine(Death(5.0f));
+
+                                routine = StartCoroutine(Death(5.0f));
                         }
                 }
         }
@@ -62,5 +74,15 @@ public class Health : MonoBehaviour
                 yield return new WaitForSeconds(timeToDie);
 
                 Destroy(gameObject);
+        }
+
+        void Drop()
+        {
+                
+        }
+
+        public void Stop()
+        {
+                StopCoroutine(routine);
         }
 }

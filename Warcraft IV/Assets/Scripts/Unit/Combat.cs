@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Combat : MonoBehaviour 
 {
+        Player player;
         int damage;
         int damageAir;
         float range;
@@ -11,6 +12,8 @@ public class Combat : MonoBehaviour
         float rate;
         float rateAir;
         Coroutine routine; 
+        GameObject target;
+        [SerializeField] GameObject projectile;
 
         void Awake ()
         {
@@ -21,13 +24,19 @@ public class Combat : MonoBehaviour
                 rangeAir = unit.AttackRangeAir;
                 rate = unit.AttackSpeed;
                 rateAir = unit.AttackSpeedAir;
+                SphereCollider collider = gameObject.GetComponent<SphereCollider>();
+                collider.radius = range;
+                collider.center = gameObject.GetComponent<CapsuleCollider>().center;
         }
 
-        public void Aggression(GameObject target)
+        void Start ()
         {
-                Vector3 direction = (target.transform.position - gameObject.transform.position).normalized;
-                Quaternion lookRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 180.0f);
+                player = gameObject.GetComponent<Player>();
+        }
+
+        public void Aggression(GameObject unit)
+        {
+                target = unit;
 
                 if (routine == null)
                 {
@@ -40,30 +49,84 @@ public class Combat : MonoBehaviour
                 }
         }
 
-        IEnumerator Attacking(GameObject target)
+        public IEnumerator Attacking(GameObject target)
         {
                 Unit otherUnit = target.GetComponent<Unit>();
                 Animator animation = gameObject.GetComponent<Animator>();
 
-                if (otherUnit.IsFlying && damageAir == 0)
+                Vector3 direction = (target.transform.position - gameObject.transform.position).normalized;
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+
+                gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, lookRotation, 100.0f);
+
+                if (SimpleFogOfWar.FogOfWarSystem.Current.GetVisibility(target.transform.position) == SimpleFogOfWar.FogOfWarSystem.FogVisibility.Visible)
                 {
-                        yield break;
-                }
-
-                Health otherHealth = target.GetComponent<Health>();
-
-                if (Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position) <= range)
-                {
-                        animation.SetTrigger("attack");
-
-                        otherHealth.HitPoints = damage;
-
-                        yield return new WaitForSeconds(rate);
-
-                        if (target != null)
+                        if (Vector3.Distance(gameObject.transform.position, target.transform.position) <= range * 2.0f)
                         {
-                                StartCoroutine(Attacking(target));
+                                gameObject.GetComponent<Pathfinding>().SendToTarget(gameObject.transform.position);
+
+                                animation.SetBool("moving", false);
+
+                                if (otherUnit.IsFlying && damageAir == 0)
+                                {
+                                        yield break;
+                                }
+
+                                animation.SetTrigger("attack");
+
+                                yield return new WaitForSeconds(rate);
+
+                                if (target != null && target.GetComponent<Health>().HitPoints > 0)
+                                {
+                                        routine = StartCoroutine(Attacking(target));
+                                }
+                                else
+                                {
+                                        StopCoroutine(routine);
+                                        target = null;
+                                }
                         }
                 }
+        }
+
+        void OnTriggerEnter(Collider unit)
+        {
+                if (unit.gameObject.tag == "Unit")
+                {
+                        Player otherUnit;
+                        otherUnit = unit.gameObject.GetComponent<Player>();
+
+                        if (otherUnit.Info.Team != player.Info.Team && routine == null)
+                        {
+                                Aggression(unit.gameObject);
+                        }
+                }
+        }
+
+        public void Damage()
+        {
+                target.GetComponent<Health>().HitPoints = damage;
+        }
+
+        public void Fire()
+        {
+                GameObject go = Instantiate(projectile, gameObject.transform.position, projectile.transform.rotation);
+                go.GetComponent<Projectile>().Damage = damage;
+                go.GetComponent<Projectile>().Enemy = target;
+        }
+
+        public void Stop()
+        {
+                StopCoroutine(routine);
+        }
+
+        public int Attack
+        {
+                get { return damage; }
+        }
+
+        public int AttackAir
+        {
+                get { return damageAir; }
         }
 }

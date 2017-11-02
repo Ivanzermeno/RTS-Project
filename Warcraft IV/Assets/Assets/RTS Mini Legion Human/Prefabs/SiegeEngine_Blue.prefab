@@ -216,8 +216,10 @@ GameObject:
   - component: {fileID: 195971593695180502}
   - component: {fileID: 114470145712052826}
   - component: {fileID: 114928419452582154}
+  - component: {fileID: 135124919218516702}
   - component: {fileID: 114523515143105896}
   - component: {fileID: 114839972628546624}
+  - component: {fileID: 54166400820247464}
   m_Layer: 0
   m_Name: SiegeEngine_Blue
   m_TagString: Unit
@@ -412,12 +414,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 89.78835, y: 0, z: 47.64411}
+  m_LocalPosition: {x: 103.27495, y: 0, z: 44.24761}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400024}
   - {fileID: 400026}
-  - {fileID: 4754425898131584}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -505,35 +506,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100028}
   m_IsPrefabParent: 1
---- !u!1 &1331718031553910
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4754425898131584}
-  - component: {fileID: 119791504436129926}
-  m_Layer: 0
-  m_Name: Highlight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4754425898131584
-Transform:
+--- !u!54 &54166400820247464
+Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1331718031553910}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400028}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 100028}
+  serializedVersion: 2
+  m_Mass: 48000
+  m_Drag: 0.35
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!114 &114023810059194616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -579,7 +566,7 @@ MonoBehaviour:
   hitPoint: 600
   hitPointRegeneration: 0
   movementSpeed: 7.5
-  attackRange: 5
+  attackRange: 3.5
   attackRangeAir: 0
   attackSpeed: 2.5
   attackSpeedAir: 0
@@ -697,24 +684,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!119 &119791504436129926
-Projector:
+--- !u!135 &135124919218516702
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1331718031553910}
+  m_GameObject: {fileID: 100028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_NearClipPlane: 0
-  m_FarClipPlane: 5
-  m_FieldOfView: 60
-  m_AspectRatio: 1
-  m_Orthographic: 1
-  m_OrthographicSize: 5.75
-  m_Material: {fileID: 2100000, guid: 1ea7326cbce850342842f8e7bbf3b0bc, type: 2}
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 8
+  m_Radius: 3.5
+  m_Center: {x: 0, y: 1, z: 0.75}
 --- !u!136 &136358633462486432
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -724,10 +705,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.25
-  m_Height: 1
+  m_Radius: 2.5
+  m_Height: 4
   m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0.75}
 --- !u!195 &195971593695180502
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -736,7 +717,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 100028}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2.25
+  m_Radius: 2
   m_Speed: 7.5
   m_Acceleration: 10
   avoidancePriority: 99
@@ -758,9 +739,9 @@ NavMeshObstacle:
   m_Enabled: 0
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 2.25, y: 0.75, z: 2.25}
+  m_Extents: {x: 2.5, y: 2, z: 2.5}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1.5, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0.75}
   m_TimeToStationary: 0.5

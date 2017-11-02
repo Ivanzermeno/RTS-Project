@@ -28,7 +28,7 @@ public class PlayerSetup
         public PlayerSetup()
         {
                 name = "Neutral";
-                accentColor = Color.yellow;
+                accentColor = Color.black;
                 faction = Factions.Neutral;
                 team = 0;
         }
@@ -42,17 +42,25 @@ public class PlayerSetup
         public Factions Faction
         {
                 get { return faction; }
+                set{ faction = value; }
         }
 
         public Transform Location
         {
                 get { return location; }
+                set{ location = value; }
         }
 
         public Color AccentColor
         {
                 get{ return accentColor; }
                 set{ accentColor = value; }
+        }
+
+        public int Team
+        {
+                get { return team; }
+                set{ team = value; }
         }
 
         public List<GameObject> StartingUnits
@@ -68,11 +76,7 @@ public class PlayerSetup
         public bool IsAI
         {
                 get{ return isAI; }
-        }
-
-        public int Team
-        {
-                get{ return team; }
+                set{ isAI = value; }
         }
 
         public float Gold

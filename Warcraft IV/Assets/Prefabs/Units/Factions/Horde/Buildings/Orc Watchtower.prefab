@@ -24,12 +24,14 @@ GameObject:
   - component: {fileID: 114880677857780386}
   - component: {fileID: 114147228645902126}
   - component: {fileID: 114797255629309650}
+  - component: {fileID: 135556757172804412}
   - component: {fileID: 114001366291286312}
   - component: {fileID: 114225083297137784}
   - component: {fileID: 114252263299687698}
   - component: {fileID: 114286709614018484}
   - component: {fileID: 208302900372380186}
   - component: {fileID: 114389246267575320}
+  - component: {fileID: 54277205507795124}
   m_Layer: 0
   m_Name: Orc Watchtower
   m_TagString: Building
@@ -52,7 +54,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 41
   m_IsActive: 1
 --- !u!4 &4487446625270384
 Transform:
@@ -120,6 +122,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1487588442795284}
   m_Mesh: {fileID: 4300000, guid: 92d91cb9a5aea06478e35a9ebed0d99e, type: 3}
+--- !u!54 &54277205507795124
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1046015198688614}
+  serializedVersion: 2
+  m_Mass: 55000
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!114 &114001366291286312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,6 +268,18 @@ MonoBehaviour:
   manaRegeneration: 0
   armorType: 5
   attackType: 1
+--- !u!135 &135556757172804412
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1046015198688614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136663058038037982
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -260,10 +289,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 5
+  m_Radius: 3.25
   m_Height: 4
   m_Direction: 1
-  m_Center: {x: 0, y: 4.5, z: 0}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!208 &208302900372380186
 NavMeshObstacle:
   m_ObjectHideFlags: 1

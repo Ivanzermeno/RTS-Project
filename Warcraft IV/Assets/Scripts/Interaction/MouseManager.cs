@@ -15,9 +15,6 @@ public class MouseManager : MonoBehaviour
         }
 
         [SerializeField] List<Interactive> selections = new List<Interactive>();
-        [SerializeField] Camera childCamera;
-        [SerializeField] RawImage portraitImage;
-        bool unitPortrait = false;
         bool isDragSelecting = false;
         Vector3 mousePosition1;
         Vector3 centerOffset;
@@ -28,38 +25,24 @@ public class MouseManager : MonoBehaviour
         {
                 if (!EventSystem.current.IsPointerOverGameObject())
                 {
-                        if (selections.Count > 1)
-                        {
-                                centerOffset = Vector3.zero;
-                                foreach (Interactive sel in selections)
-                                {
-                                        centerOffset += sel.gameObject.transform.position;
-                                }
-                                centerOffset = centerOffset / selections.Count;
-                        }
-
                         if (Input.GetMouseButtonDown(0))
                         {
+                                foreach (Interactive sel in selections)
+                                {
+                                        if (sel != null)
+                                        {
+                                                sel.Deselect();
+                                        }
+                                }
+                                selections.Clear();
+
                                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                                 RaycastHit hit;
 
                                 if (Physics.Raycast(ray, out hit))
                                 {
-                                        Interactive interact = hit.transform.GetComponent<Interactive>();
 
-                                        if (selections.Count > 0)
-                                        {
-                                                unitPortrait = false;
-                                                childCamera.gameObject.transform.parent.gameObject.layer = 0;
-                                                childCamera.gameObject.transform.parent.GetChild(0).gameObject.layer = 0;
-                                                childCamera.gameObject.SetActive(unitPortrait);
-                                                portraitImage.enabled = unitPortrait;
-                                                foreach (Interactive sel in selections)
-                                                {
-                                                        sel.Deselect();
-                                                }
-                                                selections.Clear();
-                                        }
+                                        Interactive interact = hit.collider.gameObject.GetComponent<Interactive>();
 
                                         if (Time.time - lastClickTime < catchTime)
                                         {
@@ -95,6 +78,7 @@ public class MouseManager : MonoBehaviour
                                                 }
 
                                         }
+
                                         lastClickTime = Time.time;
                                         mousePosition1 = Input.mousePosition;
                                 }
@@ -112,7 +96,6 @@ public class MouseManager : MonoBehaviour
                                         }
                                         if ((sel.gameObject.tag == "Building" || sel.gameObject.GetComponent<Player>().Info != RTSManager.Current.Players[0]) && selections.Count > 1)
                                         {
-                                                unitPortrait = false;
                                                 sel.Deselect();
                                                 selections.Remove(sel);
                                         }
@@ -140,6 +123,13 @@ public class MouseManager : MonoBehaviour
 
                                                                 if (Selections.Count > 1)
                                                                 {
+                                                                        centerOffset = Vector3.zero;
+                                                                        foreach (Interactive sel in selections)
+                                                                        {
+                                                                                centerOffset += sel.gameObject.transform.position;
+                                                                        }
+                                                                        centerOffset = centerOffset / selections.Count;
+
                                                                         pathfinding.SendToTarget(hit.point, centerOffset); 
                                                                 }
                                                                 else
@@ -151,37 +141,15 @@ public class MouseManager : MonoBehaviour
                                                         {
                                                                 PlayerSetup Info = hit.collider.gameObject.GetComponent<Player>().Info;
 
-                                                                if (Info != RTSManager.Current.Players[0])
+                                                                if (Info.Team != RTSManager.Current.Players[0].Team)
                                                                 {
                                                                         StartCoroutine(hit.collider.gameObject.GetComponent<Highlight>().Targeted());
-                                                                        if (Info.Faction != PlayerSetup.Factions.Neutral)
-                                                                        {
-                                                                                if (unit.HasAttack)
-                                                                                {
-                                                                                        selection.gameObject.GetComponent<Combat>().Aggression(hit.collider.gameObject);
-                                                                                }
-                                                                        }
+                                                                        StartCoroutine(unit.GetComponent<Combat>().Attacking(hit.collider.gameObject));
                                                                 }
                                                         }
                                                 }
                                         }
                                 }
-                        }
-
-                        if (selections.Count > 0 && unitPortrait == false)
-                        {
-                                unitPortrait = true;
-                                int randomUnit = Random.Range(0, selections.Count);
-                                CapsuleCollider collider = selections[randomUnit].GetComponent<CapsuleCollider>();
-                                Player info = selections[randomUnit].gameObject.GetComponent<Player>();
-                                selections[randomUnit].gameObject.layer = 8;
-                                selections[randomUnit].transform.GetChild(0).gameObject.layer = 8; 
-                                portraitImage.enabled = unitPortrait;
-                                childCamera.gameObject.SetActive(unitPortrait);
-                                childCamera.backgroundColor = info.Info.AccentColor;
-                                childCamera.transform.parent = selections[randomUnit].transform;
-                                childCamera.transform.position = selections[randomUnit].transform.position + ((collider.center.y + collider.height) * Vector3.up) + (selections[randomUnit].transform.forward * (collider.height + collider.radius));
-                                childCamera.transform.LookAt(selections[randomUnit].transform.position + (Vector3.up * collider.center.y));
                         }
                 }
         }
@@ -189,6 +157,12 @@ public class MouseManager : MonoBehaviour
         public List<Interactive> Selections
         {
                 get{ return selections; }
+                set{ selections = value; }
+        }
+
+        public bool IsDragSelecting
+        {
+                get{ return isDragSelecting; }
         }
 
         void OnGUI ()

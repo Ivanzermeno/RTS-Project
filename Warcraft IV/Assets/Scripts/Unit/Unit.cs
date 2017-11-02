@@ -167,15 +167,23 @@ public class Unit : MonoBehaviour
                                 EditorGUI.indentLevel -= 1;
 
                                 Combat c = unitClass.GetComponent<Combat>();
+                                SphereCollider sc = unitClass.GetComponent<SphereCollider>();
 
                                 if (c == null)
                                 {
                                         c = unitClass.gameObject.AddComponent<Combat>();
                                 }
+                                if (sc == null)
+                                {
+                                        sc = unitClass.gameObject.AddComponent<SphereCollider>();
+                                }
+
+                                sc.isTrigger = true;
                         }
                         else
                         {
                                 DestroyImmediate(unitClass.gameObject.GetComponent<Combat>());
+                                DestroyImmediate(unitClass.gameObject.GetComponent<SphereCollider>());
                         }
 
                         unitClass.hasVision = EditorGUILayout.Toggle("Vision", unitClass.hasVision);
@@ -214,19 +222,19 @@ public class Unit : MonoBehaviour
                 }
         }
 
-        public bool IsSelectable { get{ return isSelectable;} }
+        public bool IsSelectable { get{ return isSelectable;} set{ isSelectable = value;} }
 
-        public bool IsVulnerable { get{ return isVulnerable;} }
+        public bool IsVulnerable { get{ return isVulnerable;} set{ isVulnerable = value;} }
         
-        public bool IsMovable { get{ return isMovable;} }
+        public bool IsMovable { get{ return isMovable;} set{ isMovable = value;} }
 
-        public bool IsBuildable { get{ return isBuildable;} }
+        public bool IsBuildable { get{ return isBuildable;} set{ isBuildable = value;} }
        
-        public bool HasAttack { get{ return hasAttack;} }
+        public bool HasAttack { get{ return hasAttack;} set{ hasAttack = value;} }
 
-        public bool HasVision { get{ return hasVision;} }
+        public bool HasVision { get{ return hasVision;} set{ hasVision = value;} }
 
-        public bool HasMana { get{ return hasMana;} }
+        public bool HasMana { get{ return hasMana;} set{ hasMana = value;} }
 
         public float HitPoint { get{ return hitPoint;} }
 
