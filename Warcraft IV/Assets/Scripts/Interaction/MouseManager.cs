@@ -144,7 +144,7 @@ public class MouseManager : MonoBehaviour
                                                                 if (Info.Team != RTSManager.Current.Players[0].Team)
                                                                 {
                                                                         StartCoroutine(hit.collider.gameObject.GetComponent<Highlight>().Targeted());
-                                                                        StartCoroutine(unit.GetComponent<Combat>().Attacking(hit.collider.gameObject));
+                                                                        unit.gameObject.GetComponent<Combat>().Aggression(hit.collider.gameObject);
                                                                 }
                                                         }
                                                 }

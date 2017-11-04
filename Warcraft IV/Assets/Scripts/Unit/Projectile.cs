@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
                 {
                         col.gameObject.GetComponent<Health>().HitPoints = damage;
 
-                        Destroy(gameObject);
+                        StartCoroutine(Destroy());
                 }
         }
 
@@ -30,8 +30,19 @@ public class Projectile : MonoBehaviour
                         transform.LookAt(enemy.transform);
                         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, enemy.transform.position, speed * Time.deltaTime);
 
+                        if (enemy == null)
+                        {
+                                StartCoroutine(Destroy());
+                        }
                         yield return null;
                 }
+
+                StartCoroutine(Destroy());
+        }
+
+        IEnumerator Destroy()
+        {
+                yield return new WaitForSeconds(0.5f);
 
                 Destroy(gameObject);
         }
@@ -45,4 +56,6 @@ public class Projectile : MonoBehaviour
         {
                 set { enemy = value; }
         }
+
+
 }

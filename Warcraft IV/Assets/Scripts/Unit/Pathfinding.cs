@@ -99,4 +99,9 @@ public class Pathfinding : MonoBehaviour
         {
                 StopCoroutine(routine);
         }
+
+        void Step()
+        {
+                
+        }
 }
