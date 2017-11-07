@@ -62,14 +62,6 @@ public class Combat : MonoBehaviour
                         if (Vector3.Distance(gameObject.transform.position, target.transform.position) <= range)
                         {
                                 gameObject.GetComponent<Pathfinding>().SendToTarget(gameObject.transform.position);
-
-                                while (gameObject.transform.rotation.eulerAngles != lookRotation.eulerAngles)
-                                {
-                                        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, lookRotation, 25.0f * Time.deltaTime);
-
-                                        yield return null;
-                                }
-
                                 animation.SetBool("moving", false);
 
                                 if (otherUnit.IsFlying && damageAir == 0)
@@ -82,15 +74,23 @@ public class Combat : MonoBehaviour
                                         animation.SetTrigger("attack");
                                 }
 
+                                while (gameObject.transform.rotation.eulerAngles != lookRotation.eulerAngles)
+                                {
+                                        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, lookRotation, 25.0f * Time.deltaTime);
+
+                                        if (target == null)
+                                        {
+                                                yield break;
+                                        }
+
+                                        yield return null;
+                                }
+
                                 yield return new WaitForSeconds(rate);
 
                                 if (target != null && target.GetComponent<Health>().HitPoints > 0)
                                 {
                                         routine = StartCoroutine(Attacking());
-                                }
-                                else if (target != null)
-                                {
-                                        
                                 }
                                 else
                                 {

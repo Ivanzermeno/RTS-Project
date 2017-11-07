@@ -9,21 +9,21 @@ namespace SimpleFogOfWar
 
         void Start ()
         {
-            Unit unit = gameObject.GetComponent<Unit>();
-            viewDistance = unit.VisionRange;
+                Unit unit = gameObject.GetComponent<Unit>();
+                viewDistance = unit.VisionRange;
 
-            PlayerSetup player = gameObject.GetComponent<Player>().Info;
-            if (player.IsAI || player == null)
-            {
-                suspended = true;
-            }
+                Player player = gameObject.GetComponent<Player>();
+                if (player.Info.Team != RTSManager.Current.Players[0].Team)
+                {
+                        suspended = true;
+                }
 
-            FogOfWarSystem.RegisterInfluence(this);
+                FogOfWarSystem.RegisterInfluence(this);
         }
 
         void OnDestroy ()
         {
-            FogOfWarSystem.UnregisterInfluence(this);
+                FogOfWarSystem.UnregisterInfluence(this);
         }
 
         public float ViewDistance { get{ return viewDistance;} }

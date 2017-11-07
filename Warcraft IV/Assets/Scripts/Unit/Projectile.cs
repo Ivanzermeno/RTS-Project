@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
                 }
         }
 
-        IEnumerator Target()
+        IEnumerator Target ()
         {
                 while(Vector3.Distance(gameObject.transform.position, enemy.transform.position) > 0.05f)
                 {
@@ -40,7 +40,7 @@ public class Projectile : MonoBehaviour
                 StartCoroutine(Destroy());
         }
 
-        IEnumerator Destroy()
+        IEnumerator Destroy ()
         {
                 yield return new WaitForSeconds(0.5f);
 

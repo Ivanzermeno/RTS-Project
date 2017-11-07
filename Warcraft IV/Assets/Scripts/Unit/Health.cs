@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
                         }
                         else if (hitPoints <= 0)
                         {
-                                Animator animation = gameObject.GetComponent<Animator>();
+                                Animator animation = gameObject.GetComponentInChildren<Animator>();
 
                                 gameObject.GetComponent<Combat>().enabled = false;
                                 gameObject.GetComponent<Rigidbody>().useGravity = true;

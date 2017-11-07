@@ -45,7 +45,7 @@ public class Portrait : MonoBehaviour
                         CapsuleCollider collider = selections[0].GetComponent<CapsuleCollider>();
                         Player info = selections[0].gameObject.GetComponent<Player>();
                         selections[0].gameObject.layer = 8;
-                        selections[0].transform.GetChild(0).gameObject.layer = 8; 
+                        selections[0].transform.GetChild(0).gameObject.layer = 8;
                         portraitImage.enabled = true;
                         cam.backgroundColor = info.Info.AccentColor;
                         gameObject.transform.position = selections[0].transform.position + ((collider.center.y + collider.height) * Vector3.up) + (selections[0].transform.forward * (collider.height + collider.radius));

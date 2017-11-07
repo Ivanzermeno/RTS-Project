@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 6dfa631d069cbe3448081884538a83c7
-timeCreated: 1507739193
+timeCreated: 1510066949
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - viewPort: {instanceID: 0}
+  - corner1: {instanceID: 0}
+  - corner2: {instanceID: 0}
+  - blipPrefab: {fileID: 1924203470859912, guid: bc59cdffae9223442b0c8b84b2b07ca8,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

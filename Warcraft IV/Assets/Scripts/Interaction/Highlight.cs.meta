@@ -1,13 +1,15 @@
 fileFormatVersion: 2
 guid: 64c8cac0e46a73b4f971a7c2b67df30e
-timeCreated: 1508986213
+timeCreated: 1510067850
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - displaySelectionCircle: {fileID: 1880117784740228, guid: b981f9a32bc175d4da7eda6960486169,
+  - displaySelectionCircle: {fileID: 1000220710032276, guid: ab54e75ea69e1ce44a0222bfafa4445e,
       type: 2}
-  executionOrder: 0
+  - friendly: {fileID: 2100000, guid: a05ac318f6162c34c896ab4ebcec174b, type: 2}
+  - hostile: {fileID: 2100000, guid: 1ea7326cbce850342842f8e7bbf3b0bc, type: 2}
+  executionOrder: 200
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

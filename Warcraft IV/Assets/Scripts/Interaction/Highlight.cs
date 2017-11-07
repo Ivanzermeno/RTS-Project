@@ -32,7 +32,7 @@ public class Highlight : Interaction
                 projector.material = Resources.Load("Neutral", typeof(Material)) as Material;
 
                 Player player = gameObject.GetComponent<Player>();
-                if (player.Info == RTSManager.Current.Players[0])
+                if (player.Info.Team == RTSManager.Current.Players[0].Team)
                 {
                         projector.material = Resources.Load("Friendly", typeof(Material)) as Material;
                 }

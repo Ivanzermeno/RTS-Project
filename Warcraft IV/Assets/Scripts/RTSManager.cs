@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class RTSManager : MonoBehaviour 
 {
-        public static RTSManager Current = null;
+        public static RTSManager Current;
 
         [SerializeField] List<PlayerSetup> players = new List<PlayerSetup>();
 
         [SerializeField] TerrainCollider MapCollider;
-
-        public List<PlayerSetup> Players
-        {
-                get{ return players;}
-        }
 
         public RTSManager ()
         {
@@ -39,5 +34,10 @@ public class RTSManager : MonoBehaviour
                                 player.Info = playerSetup;
                         }
                 }
+        }
+
+        public List<PlayerSetup> Players
+        {
+                get{ return players;}
         }
 }
