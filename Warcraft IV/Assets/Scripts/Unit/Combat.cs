@@ -44,7 +44,7 @@ public class Combat : MonoBehaviour
                 }
                 else
                 {
-                        StopCoroutine(routine);
+                        Stop();
                         routine = StartCoroutine(Attacking());
                 }
         }
@@ -57,6 +57,17 @@ public class Combat : MonoBehaviour
                 Vector3 direction = (target.transform.position - gameObject.transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(direction);
 
+                if (otherUnit.IsFlying && damageAir == 0)
+                {
+                        Stop();
+                        yield break;
+                }
+                else if (gameObject.GetComponent<Unit>().AttackType == Unit.Attack.Siege && otherUnit.tag != "Building")
+                {
+                        Stop();
+                        yield break;
+                }
+
                 if (SimpleFogOfWar.FogOfWarSystem.Current.GetVisibility(target.transform.position) == SimpleFogOfWar.FogOfWarSystem.FogVisibility.Visible)
                 {
                         if (Vector3.Distance(gameObject.transform.position, target.transform.position) <= range)
@@ -64,19 +75,9 @@ public class Combat : MonoBehaviour
                                 gameObject.GetComponent<Pathfinding>().SendToTarget(gameObject.transform.position);
                                 animation.SetBool("moving", false);
 
-                                if (otherUnit.IsFlying && damageAir == 0)
-                                {
-                                        animation.SetTrigger("attack1");
-                                        yield break;
-                                }
-                                else if (otherUnit.IsFlying == false)
-                                {
-                                        animation.SetTrigger("attack");
-                                }
-
                                 while (gameObject.transform.rotation.eulerAngles != lookRotation.eulerAngles)
                                 {
-                                        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, lookRotation, 25.0f * Time.deltaTime);
+                                        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, lookRotation, 30.0f * Time.deltaTime);
 
                                         if (target == null)
                                         {
@@ -86,6 +87,16 @@ public class Combat : MonoBehaviour
                                         yield return null;
                                 }
 
+                                if (Vector3.Distance(gameObject.transform.position, target.transform.position) <= 10.0f)
+                                {
+                                        animation.SetTrigger("attack");
+                                }
+                                else
+                                {
+                                        animation.SetTrigger("attack1");
+                                }
+
+
                                 yield return new WaitForSeconds(rate);
 
                                 if (target != null && target.GetComponent<Health>().HitPoints > 0)
@@ -94,7 +105,7 @@ public class Combat : MonoBehaviour
                                 }
                                 else
                                 {
-                                        StopCoroutine(routine);
+                                        Stop();
                                         target = null;
                                 }
                         }

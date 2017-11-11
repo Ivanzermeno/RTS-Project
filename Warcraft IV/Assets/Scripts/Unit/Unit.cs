@@ -244,6 +244,8 @@ public class Unit : MonoBehaviour
 
         public int ArmorPoint { get{ return ArmorPoint;} }
 
+        public Armor ArmorType { get{ return armorType;} }
+
         public float MovementSpeed { get{ return movementSpeed;} }
 
         public bool IsFlying { get{ return isFlying;} }
@@ -267,6 +269,8 @@ public class Unit : MonoBehaviour
         public float AttackSpeed { get{ return attackSpeed;} }
 
         public float AttackSpeedAir { get{ return attackSpeedAir;} }
+
+        public Attack AttackType { get{ return attackType;} }
 
         public float VisionRange { get{ return visionRange;} }
        
