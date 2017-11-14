@@ -1715,7 +1715,7 @@ MonoBehaviour:
   hitPoint: 450
   hitPointRegeneration: 2
   movementSpeed: 17.5
-  attackRange: 5
+  attackRange: 25
   attackRangeAir: 5
   attackSpeed: 4.2
   attackSpeedAir: 2.1
@@ -1766,8 +1766,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 25
+  m_Center: {x: 0, y: 6, z: 0}
 --- !u!136 &136081666287415272
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1777,10 +1777,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 3
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 6, z: 0}
 --- !u!137 &137761853216257450
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

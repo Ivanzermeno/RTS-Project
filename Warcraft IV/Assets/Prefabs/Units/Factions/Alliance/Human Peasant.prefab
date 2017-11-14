@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 114363500518131930}
   - component: {fileID: 54395916907928560}
   - component: {fileID: 95599529674261442}
+  - component: {fileID: 114166185666247970}
   m_Layer: 0
   m_Name: Human Peasant
   m_TagString: Unit
@@ -732,7 +733,7 @@ Rigidbody:
   m_Mass: 60
   m_Drag: 1.3
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 116
@@ -754,6 +755,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114166185666247970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1456491930785606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468c8703fe1ed074dbd764ad1789ecbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPic: {fileID: 0}
+  indexAction: 0
+  buildingPrefab: {fileID: 0}
+  GhostBuildingPrefab: {fileID: 0}
 --- !u!114 &114363500518131930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -800,7 +816,7 @@ MonoBehaviour:
   hitPoint: 75
   hitPointRegeneration: 0.5
   movementSpeed: 5
-  attackRange: 1.5
+  attackRange: 4
   attackRangeAir: 0
   attackSpeed: 2
   attackSpeedAir: 0
@@ -896,8 +912,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 4
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &136399929612518712
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -907,10 +923,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1.25
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &137259562263045672
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -994,7 +1010,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1.25
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!208 &208143183994361804

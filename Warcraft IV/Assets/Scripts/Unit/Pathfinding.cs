@@ -15,10 +15,7 @@ public class Pathfinding : MonoBehaviour
         {
                 offset = gameObject.transform.position - offset;
 
-                if (routine != null)
-                {
-                        StopCoroutine(routine);
-                }
+                Stop();
 
                 obstacle.enabled = false;
                 agent.enabled = true;
@@ -28,10 +25,7 @@ public class Pathfinding : MonoBehaviour
 
         public void SendToTarget (Vector3 target)
         {
-                if (routine != null)
-                {
-                        StopCoroutine(routine);
-                }
+                Stop();
 
                 obstacle.enabled = false;
                 agent.enabled = true;
@@ -72,10 +66,8 @@ public class Pathfinding : MonoBehaviour
         IEnumerator Moving (Vector3 target)
         {
                 Animator animation = gameObject.GetComponent<Animator>();
-                Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
 
                 animation.SetBool("moving", true);
-                rigidbody.isKinematic = false;
 
                 while(Vector3.Distance(unitPosition, target) > agent.stoppingDistance)
                 {
@@ -85,10 +77,11 @@ public class Pathfinding : MonoBehaviour
                         if(Vector3.Distance(unitPosition, target) <= agent.stoppingDistance)
                         {
                                 animation.SetBool("moving", false);
-                                rigidbody.isKinematic = true;
 
                                 agent.enabled = false;
                                 obstacle.enabled = true;
+
+                                yield break;
                         }
 
                         yield return null;
@@ -97,11 +90,9 @@ public class Pathfinding : MonoBehaviour
 
         public void Stop()
         {
-                StopCoroutine(routine);
-        }
-
-        void Step()
-        {
-                
+                if (routine != null)
+                {
+                        StopCoroutine(routine);    
+                }
         }
 }

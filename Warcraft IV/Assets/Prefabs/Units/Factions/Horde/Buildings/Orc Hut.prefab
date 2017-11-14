@@ -45,7 +45,8 @@ GameObject:
   - component: {fileID: 114638846086094364}
   - component: {fileID: 114041363736330238}
   - component: {fileID: 208464923676894266}
-  - component: {fileID: 54462818036374978}
+  - component: {fileID: 54290531430422940}
+  - component: {fileID: 114987124562655646}
   m_Layer: 0
   m_Name: Orc Hut
   m_TagString: Building
@@ -119,7 +120,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838762850740866}
   m_Mesh: {fileID: 4300000, guid: 5e622122135502a44901216eabb2483f, type: 3}
---- !u!54 &54462818036374978
+--- !u!54 &54290531430422940
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -129,8 +130,8 @@ Rigidbody:
   m_Mass: 50000
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -241,6 +242,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114987124562655646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1845583031405788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc74f1ce438ed14091bf6fa0463f9c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!136 &136193670785298742

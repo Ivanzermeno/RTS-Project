@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 114762243565029112}
   - component: {fileID: 114396398040154092}
   - component: {fileID: 114677563022323962}
+  - component: {fileID: 114751831322363852}
   m_Layer: 0
   m_Name: throne_atlas
   m_TagString: Unit
@@ -30,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -0, y: 0.5, z: -0, w: 0.86602545}
-  m_LocalPosition: {x: 40.17, y: 0.0005636215, z: 34.67}
+  m_LocalPosition: {x: 8.606895, y: 0.00056316913, z: 88.27771}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,6 +109,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114751831322363852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc74f1ce438ed14091bf6fa0463f9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114762243565029112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,6 +151,7 @@ MonoBehaviour:
   hasAttack: 0
   hasVision: 0
   hasMana: 0
+  isFlying: 0
   hitPointRecoveryTime: 0
   armorPoint: 0
   costGold: 0
@@ -153,7 +166,9 @@ MonoBehaviour:
   hitPointRegeneration: 0
   movementSpeed: 0
   attackRange: 0
+  attackRangeAir: 0
   attackSpeed: 0
+  attackSpeedAir: 0
   visionRange: 0
   manaRegeneration: 0
   armorType: 0

@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 114489106383446298}
   - component: {fileID: 54338160887815316}
   - component: {fileID: 95551533919834854}
+  - component: {fileID: 114919027721839236}
   m_Layer: 0
   m_Name: Orc Peon
   m_TagString: Unit
@@ -935,7 +936,7 @@ Rigidbody:
   m_Mass: 60
   m_Drag: 1.5
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 116
@@ -1002,7 +1003,7 @@ MonoBehaviour:
   hitPoint: 75
   hitPointRegeneration: 0.5
   movementSpeed: 5
-  attackRange: 1.5
+  attackRange: 4
   attackRangeAir: 0
   attackSpeed: 2
   attackSpeedAir: 0
@@ -1055,6 +1056,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af94f38fffe4b4e428c863f0d26f086c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114919027721839236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1171096895734770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468c8703fe1ed074dbd764ad1789ecbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPic: {fileID: 0}
+  indexAction: 0
+  buildingPrefab: {fileID: 1021098126425834, guid: b517e86c1d952994784065f31c850cf8,
+    type: 2}
+  GhostBuildingPrefab: {fileID: 100000, guid: 0c0f789319c323b4ba52c22a1fc8e79c, type: 2}
 --- !u!114 &114934476941878118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1099,8 +1116,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 4
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &136845596001358938
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1110,10 +1127,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1.25
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &137512269956502608
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

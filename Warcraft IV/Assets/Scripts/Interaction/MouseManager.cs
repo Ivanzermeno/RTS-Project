@@ -41,7 +41,6 @@ public class MouseManager : MonoBehaviour
 
                                 if (Physics.Raycast(ray, out hit))
                                 {
-
                                         Interactive interact = hit.collider.gameObject.GetComponent<Interactive>();
 
                                         if (Time.time - lastClickTime < catchTime)
@@ -61,6 +60,7 @@ public class MouseManager : MonoBehaviour
                                                                                 sel.Select();  
                                                                         }
                                                                 }
+
                                                                 isDragSelecting = false;
                                                                 return;
                                                         }
@@ -116,11 +116,10 @@ public class MouseManager : MonoBehaviour
                                                 if (selection.gameObject.GetComponent<Player>().Info == RTSManager.Current.Players[0])
                                                 {
                                                         Unit unit = selection.gameObject.GetComponent<Unit>();
+                                                        Pathfinding pathfinding = selection.gameObject.GetComponent<Pathfinding>();
 
                                                         if (unit.IsMovable)
                                                         {
-                                                                Pathfinding pathfinding = selection.gameObject.GetComponent<Pathfinding>();
-
                                                                 if (Selections.Count > 1)
                                                                 {
                                                                         centerOffset = Vector3.zero;
@@ -144,7 +143,7 @@ public class MouseManager : MonoBehaviour
                                                                 if (Info.Team != RTSManager.Current.Players[0].Team)
                                                                 {
                                                                         StartCoroutine(hit.collider.gameObject.GetComponent<Highlight>().Targeted());
-                                                                        unit.gameObject.GetComponent<Combat>().Aggression(hit.collider.gameObject);
+                                                                        selection.GetComponent<Combat>().Aggression(hit.collider.gameObject);
                                                                 }
                                                         }
                                                 }

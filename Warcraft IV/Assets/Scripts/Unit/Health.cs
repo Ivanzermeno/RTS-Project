@@ -39,14 +39,13 @@ public class Health : MonoBehaviour
                                         animation.SetTrigger("getHit");
                                 }
                         }
-
                         if (hitPoints > maxHitPoints)
                         {
                                 hitPoints = maxHitPoints;
                         }
                         else if (hitPoints <= 0)
                         {
-                                Animator animation = gameObject.GetComponentInChildren<Animator>();
+                                Animator animation = gameObject.GetComponent<Animator>();
 
                                 gameObject.GetComponent<Combat>().enabled = false;
                                 gameObject.GetComponent<Rigidbody>().useGravity = true;
@@ -64,7 +63,7 @@ public class Health : MonoBehaviour
 
         IEnumerator RegenerateHitPoints()
         {
-                this.HitPoints = hitPointRegeneration;
+                HitPoints = hitPointRegeneration;
                 yield return new WaitForSeconds(hitPointRecoveryTime);
                 routine = StartCoroutine(RegenerateHitPoints());
         }

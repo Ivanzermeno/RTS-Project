@@ -790,7 +790,7 @@ Rigidbody:
   m_Mass: 110
   m_Drag: 1.3
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 116
@@ -846,7 +846,7 @@ MonoBehaviour:
   hitPoint: 160
   hitPointRegeneration: 1.25
   movementSpeed: 10
-  attackRange: 2.5
+  attackRange: 6
   attackRangeAir: 0
   attackSpeed: 1.9
   attackSpeedAir: 0
@@ -954,8 +954,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 6
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &136411943192866770
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -965,10 +965,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1.15
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &137733816204835860
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

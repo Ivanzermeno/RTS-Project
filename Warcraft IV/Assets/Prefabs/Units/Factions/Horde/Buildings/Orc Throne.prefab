@@ -28,6 +28,9 @@ GameObject:
   - component: {fileID: 114802447694178304}
   - component: {fileID: 114851891035223508}
   - component: {fileID: 208258373846228960}
+  - component: {fileID: 54737255488521850}
+  - component: {fileID: 135809385750386034}
+  - component: {fileID: 114389256950568786}
   m_Layer: 0
   m_Name: Orc Throne
   m_TagString: Building
@@ -118,6 +121,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1351305682221922}
   m_Mesh: {fileID: 4300000, guid: 9ba3df276a13c5d41a5e7050f7a3379c, type: 3}
+--- !u!54 &54737255488521850
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021098126425834}
+  serializedVersion: 2
+  m_Mass: 200000
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!114 &114120867782657924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,7 +153,7 @@ MonoBehaviour:
   isVulnerable: 1
   isMovable: 0
   isBuildable: 1
-  hasAttack: 0
+  hasAttack: 1
   hasVision: 1
   hasMana: 0
   isFlying: 0
@@ -145,21 +163,21 @@ MonoBehaviour:
   costLumber: 300
   costPopulation: 0
   buildTime: 100
-  attackGround: 0
-  attackAir: 0
+  attackGround: 15
+  attackAir: 15
   manaPool: 0
   teamNumber: 0
   hitPoint: 1500
   hitPointRegeneration: 0
   movementSpeed: 0
-  attackRange: 0
-  attackRangeAir: 0
-  attackSpeed: 0
-  attackSpeedAir: 0
+  attackRange: 30
+  attackRangeAir: 30
+  attackSpeed: 1.4
+  attackSpeedAir: 1.4
   visionRange: 35
   manaRegeneration: 0
   armorType: 5
-  attackType: 0
+  attackType: 1
 --- !u!114 &114125730530652502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,6 +200,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af94f38fffe4b4e428c863f0d26f086c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114389256950568786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021098126425834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1215914447863426, guid: 0eefa749c595fa9449382d5834767cf1, type: 2}
 --- !u!114 &114408492907437064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +257,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+--- !u!135 &135809385750386034
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021098126425834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136178000962008304
 CapsuleCollider:
   m_ObjectHideFlags: 1

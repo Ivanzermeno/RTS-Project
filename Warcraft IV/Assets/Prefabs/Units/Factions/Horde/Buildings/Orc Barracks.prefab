@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114660307787948790}
   - component: {fileID: 114871475607801882}
   - component: {fileID: 208764687830470122}
+  - component: {fileID: 54063314862369792}
   m_Layer: 0
   m_Name: Orc Barracks
   m_TagString: Building
@@ -120,6 +121,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1682501284593526}
   m_Mesh: {fileID: 4300000, guid: ec69d4cf407e0c9419f1eebf6eebaddd, type: 3}
+--- !u!54 &54063314862369792
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021501797093948}
+  serializedVersion: 2
+  m_Mass: 125000
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!111 &111847066858921904
 Animation:
   m_ObjectHideFlags: 1
@@ -245,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPic: {fileID: 21300000, guid: 0e53a8d6a36908b409b134a28e9e3628, type: 3}
   indexAction: 0
-  prefab: {fileID: 1778904033698660, guid: 8b44070243541384cbc1fdc0da5b1065, type: 2}
+  prefab: {fileID: 1595303195847722, guid: 5f1fc579fee186b4a87e27870586274a, type: 2}
 --- !u!114 &114949466340084110
 MonoBehaviour:
   m_ObjectHideFlags: 1

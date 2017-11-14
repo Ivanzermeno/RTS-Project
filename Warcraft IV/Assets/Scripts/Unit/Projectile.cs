@@ -25,16 +25,20 @@ public class Projectile : MonoBehaviour
 
         IEnumerator Target ()
         {
-                while(Vector3.Distance(gameObject.transform.position, enemy.transform.position) > 0.05f)
+                if (enemy != null)
                 {
-                        transform.LookAt(enemy.transform);
-                        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, enemy.transform.position, speed * Time.deltaTime);
-
-                        if (enemy == null)
+                        while(Vector3.Distance(gameObject.transform.position, enemy.transform.position) > 0.5f)
                         {
-                                StartCoroutine(Destroy());
+                                gameObject.transform.LookAt(enemy.transform);
+                                gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, enemy.transform.position, speed * Time.deltaTime);
+
+                                if (enemy == null)
+                                {
+                                        StartCoroutine(Destroy());
+                                        yield break;
+                                }
+                                yield return null;
                         }
-                        yield return null;
                 }
 
                 StartCoroutine(Destroy());
