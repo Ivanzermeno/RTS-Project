@@ -120,6 +120,10 @@ public class Combat : MonoBehaviour
                         gameObject.GetComponent<Pathfinding>().SendToTarget(gameObject.transform.position);
                         Aggression(unit.gameObject);
                 }
+                else
+                {
+                        gameObject.GetComponent<Pathfinding>().SendToTarget(unit.transform.position);
+                }
         }
 
         void Damage()

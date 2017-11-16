@@ -69,11 +69,11 @@ public class Pathfinding : MonoBehaviour
 
                 animation.SetBool("moving", true);
 
+                unitPosition = new Vector3(gameObject.transform.position.x, target.y, gameObject.transform.position.z);
+                agent.SetDestination(target);
+
                 while(Vector3.Distance(unitPosition, target) > agent.stoppingDistance)
                 {
-                        unitPosition = new Vector3(gameObject.transform.position.x, target.y, gameObject.transform.position.z);
-                        agent.SetDestination(target);
-
                         if(Vector3.Distance(unitPosition, target) <= agent.stoppingDistance)
                         {
                                 animation.SetBool("moving", false);
