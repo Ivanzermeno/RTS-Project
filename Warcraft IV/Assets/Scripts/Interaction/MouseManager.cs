@@ -118,7 +118,17 @@ public class MouseManager : MonoBehaviour
                                                         Unit unit = selection.gameObject.GetComponent<Unit>();
                                                         Pathfinding pathfinding = selection.gameObject.GetComponent<Pathfinding>();
 
-                                                        if (unit.IsMovable)
+                                                        if (hit.collider.tag == "Unit" || hit.collider.tag == "Building")
+                                                        {
+                                                                PlayerSetup Info = hit.collider.gameObject.GetComponent<Player>().Info;
+
+                                                                if (Info.Team != RTSManager.Current.Players[0].Team)
+                                                                {
+                                                                        StartCoroutine(hit.collider.gameObject.GetComponent<Highlight>().Targeted());
+                                                                        selection.GetComponent<Combat>().Aggression(hit.collider.gameObject);
+                                                                }
+                                                        }
+                                                        else if (unit.IsMovable)
                                                         {
                                                                 if (Selections.Count > 1)
                                                                 {
@@ -134,16 +144,6 @@ public class MouseManager : MonoBehaviour
                                                                 else
                                                                 {
                                                                         pathfinding.SendToTarget(hit.point); 
-                                                                }
-                                                        }
-                                                        if (hit.collider.tag == "Unit" || hit.collider.tag == "Building")
-                                                        {
-                                                                PlayerSetup Info = hit.collider.gameObject.GetComponent<Player>().Info;
-
-                                                                if (Info.Team != RTSManager.Current.Players[0].Team)
-                                                                {
-                                                                        StartCoroutine(hit.collider.gameObject.GetComponent<Highlight>().Targeted());
-                                                                        selection.GetComponent<Combat>().Aggression(hit.collider.gameObject);
                                                                 }
                                                         }
                                                 }

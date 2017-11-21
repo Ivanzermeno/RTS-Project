@@ -7,7 +7,6 @@ public class Pathfinding : MonoBehaviour
 {
         NavMeshAgent agent;
         NavMeshObstacle obstacle;
-        Vector3 unitPosition;
         Coroutine routine;
         float maxMovementSpeed;
 
@@ -15,20 +14,14 @@ public class Pathfinding : MonoBehaviour
         {
                 offset = gameObject.transform.position - offset;
 
-                Stop();
-
-                obstacle.enabled = false;
-                agent.enabled = true;
+                gameObject.GetComponent<Combat>().Stop();
 
                 routine = StartCoroutine(Moving(target + offset));
         }
 
         public void SendToTarget (Vector3 target)
         {
-                Stop();
-
-                obstacle.enabled = false;
-                agent.enabled = true;
+                gameObject.GetComponent<Combat>().Stop();
 
                 routine = StartCoroutine(Moving(target));
         }
@@ -50,7 +43,6 @@ public class Pathfinding : MonoBehaviour
                 agent = gameObject.GetComponent<NavMeshAgent>();
                 CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
                 maxMovementSpeed = unit.MovementSpeed;
-                unitPosition = new Vector3(gameObject.transform.position.x, 0.0f, gameObject.transform.position.z);
                 agent.angularSpeed = 50000.0f;
                 agent.speed = unit.MovementSpeed;
                 agent.acceleration = 10.0f;
@@ -65,34 +57,47 @@ public class Pathfinding : MonoBehaviour
 
         IEnumerator Moving (Vector3 target)
         {
+                obstacle.enabled = false;
+                agent.enabled = true;
+
                 Animator animation = gameObject.GetComponent<Animator>();
 
                 animation.SetBool("moving", true);
 
-                unitPosition = new Vector3(gameObject.transform.position.x, target.y, gameObject.transform.position.z);
+                target = new Vector3(target.x, gameObject.transform.position.y, target.z);
+
                 agent.SetDestination(target);
 
-                while(Vector3.Distance(unitPosition, target) > agent.stoppingDistance)
+                while(Vector3.Distance(gameObject.transform.position, target) > agent.stoppingDistance && gameObject.GetComponent<Combat>().IsAttacking == false)
                 {
-                        if(Vector3.Distance(unitPosition, target) <= agent.stoppingDistance)
+                        if (gameObject.GetComponent<Combat>().IsAttacking == true)
                         {
                                 animation.SetBool("moving", false);
 
                                 agent.enabled = false;
                                 obstacle.enabled = true;
 
-                                yield break;
+                                Stop();
                         }
 
                         yield return null;
                 }
+
+                animation.SetBool("moving", false);
+
+                agent.enabled = false;
+                obstacle.enabled = true;
         }
 
         public void Stop()
         {
                 if (routine != null)
                 {
-                        StopCoroutine(routine);    
+                        StopCoroutine(routine);
+                }
+                else
+                {
+                        routine = null;
                 }
         }
 }
