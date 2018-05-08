@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
+  m_Name: Wyvern
+  m_EditorClassIdentifier: 
+  name: Wyvern
+  description: Flying ranged creature
+  isSelectable: 1
+  isVulnerable: 1
+  isMovable: 1
+  isBuildable: 1
+  hasAttack: 1
+  hasVision: 1
+  hasMana: 1
+  isFlying: 1
+  hitPointRecoveryTime: 4
+  armorPoint: 9
+  costGold: 350
+  costLumber: 150
+  costPopulation: 6
+  buildTime: 35
+  attackGround: 54
+  attackAir: 54
+  manaPool: 0
+  hitPoint: 700
+  hitPointRegeneration: 3
+  movementSpeed: 13
+  attackRange: 25
+  attackRangeAir: 25
+  attackSpeed: 3.1
+  attackSpeedAir: 3.1
+  visionRange: 18
+  manaRegeneration: 1.5
+  armorType: 3
+  attackType: 3

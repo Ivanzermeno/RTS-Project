@@ -245,7 +245,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4533261360355012}
-  - component: {fileID: 114782891165138000}
   - component: {fileID: 114529246174855982}
   - component: {fileID: 114321356460967656}
   - component: {fileID: 114341566428889816}
@@ -260,8 +259,6 @@ GameObject:
   - component: {fileID: 114770247387932854}
   - component: {fileID: 54322906983649634}
   - component: {fileID: 95935204560690210}
-  - component: {fileID: 114578799051596880}
-  - component: {fileID: 114133881923056044}
   m_Layer: 0
   m_Name: Human Crusader
   m_TagString: Unit
@@ -825,38 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114133881923056044
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1660354648698672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc5d993e69f4e7f4199d69f9c5c4d794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info:
-    name: Player 2
-    faction: 0
-    location: {fileID: 0}
-    accentColor: {r: 0, g: 0, b: 1, a: 1}
-    startingUnits: []
-    activeUnits:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 1660354648698672}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    isAI: 0
-    team: 2
-    gold: 1000
-    lumber: 500
-    population: 0
-    maxPopulation: 0
+  unitInfo: {fileID: 11400000, guid: f8d5e7ffbccdc7640aa7bd6ddff42680, type: 2}
 --- !u!114 &114321356460967656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -868,6 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114341566428889816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -890,6 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: f8d5e7ffbccdc7640aa7bd6ddff42680, type: 2}
 --- !u!114 &114529246174855982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -912,6 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114570029899028106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -923,38 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
---- !u!114 &114578799051596880
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1660354648698672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc5d993e69f4e7f4199d69f9c5c4d794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info:
-    name: Player 2
-    faction: 0
-    location: {fileID: 0}
-    accentColor: {r: 0, g: 0, b: 1, a: 1}
-    startingUnits: []
-    activeUnits:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 1660354648698672}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 1660354648698672}
-    isAI: 0
-    team: 2
-    gold: 1000
-    lumber: 500
-    population: 0
-    maxPopulation: 0
+  unitInfo: {fileID: 11400000, guid: f8d5e7ffbccdc7640aa7bd6ddff42680, type: 2}
 --- !u!114 &114770247387932854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -967,48 +905,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 1
---- !u!114 &114782891165138000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1660354648698672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Crusader
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 4
-  armorPoint: 8
-  costGold: 275
-  costLumber: 125
-  costPopulation: 4
-  buildTime: 33
-  attackGround: 45
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 525
-  hitPointRegeneration: 2
-  movementSpeed: 6
-  attackRange: 4.5
-  attackRangeAir: 0
-  attackSpeed: 1.75
-  attackSpeedAir: 0
-  visionRange: 30
-  manaRegeneration: 0
-  armorType: 3
-  attackType: 0
+  unitInfo: {fileID: 11400000, guid: f8d5e7ffbccdc7640aa7bd6ddff42680, type: 2}
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!135 &135951973160500626
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1043,6 +941,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -1058,6 +957,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

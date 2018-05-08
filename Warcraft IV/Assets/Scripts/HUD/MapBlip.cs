@@ -6,18 +6,19 @@ using UnityEngine.UI;
 public class MapBlip : MonoBehaviour 
 {
         GameObject blip;
+		public Player player;
 
-	void Start () 
-        {
+		void Start () 
+    	{
                 blip = GameObject.Instantiate(Map.Current.BlipPrefab);
                 blip.transform.SetParent(Map.Current.transform);
                 CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
                 blip.transform.localScale = new Vector3(collider.radius + 2.0f, collider.radius + 2.0f, collider.radius + 2.0f);
                 Image sprite = blip.GetComponent<Image>(); 
-                sprite.color = gameObject.GetComponent<Player>().Info.AccentColor; 
-	}
+				sprite.color = player.AccentColor; 
+		}
 	
-	void FixedUpdate () 
+		void FixedUpdate () 
         {
                 if (SimpleFogOfWar.FogOfWarSystem.Current.GetVisibility(gameObject.transform.position) == SimpleFogOfWar.FogOfWarSystem.FogVisibility.Visible)
                 {
@@ -28,7 +29,7 @@ public class MapBlip : MonoBehaviour
                         blip.SetActive(false);
                 }
                 blip.transform.position = Map.Current.WorldPositionToMap(transform.position);
-	}
+		}
 
         void OnDestroy ()
         {

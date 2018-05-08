@@ -169,7 +169,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4304270273346462}
-  - component: {fileID: 114375246416657044}
   - component: {fileID: 114634035875913136}
   - component: {fileID: 114797609125393450}
   - component: {fileID: 114743318718728844}
@@ -782,48 +781,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
---- !u!114 &114375246416657044
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1456491930785606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Peasant
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 1
-  armorPoint: 0
-  costGold: 90
-  costLumber: 0
-  costPopulation: 1
-  buildTime: 10
-  attackGround: 5
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 75
-  hitPointRegeneration: 0.5
-  movementSpeed: 5
-  attackRange: 4
-  attackRangeAir: 0
-  attackSpeed: 2
-  attackSpeedAir: 0
-  visionRange: 15
-  manaRegeneration: 0
-  armorType: 0
-  attackType: 2
+  unitInfo: {fileID: 11400000, guid: b4479d41522b74d4da1ebf1bea28dcbb, type: 2}
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114634035875913136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -846,6 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114743318718728844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -868,7 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  unitInfo: {fileID: 11400000, guid: b4479d41522b74d4da1ebf1bea28dcbb, type: 2}
 --- !u!114 &114797609125393450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -880,6 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114863997651119536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -891,6 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: b4479d41522b74d4da1ebf1bea28dcbb, type: 2}
 --- !u!114 &114891029166469970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -902,6 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: b4479d41522b74d4da1ebf1bea28dcbb, type: 2}
 --- !u!135 &135467981206569588
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -936,6 +899,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -951,6 +915,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

@@ -349,7 +349,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4591805474804706}
-  - component: {fileID: 114012013225854762}
   - component: {fileID: 114153017301890724}
   - component: {fileID: 114765604435410016}
   - component: {fileID: 114619785065484176}
@@ -812,48 +811,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114012013225854762
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1922710687325434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Footman
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 1
-  armorPoint: 6
-  costGold: 140
-  costLumber: 0
-  costPopulation: 0
-  buildTime: 0
-  attackGround: 24
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 160
-  hitPointRegeneration: 1.25
-  movementSpeed: 10
-  attackRange: 6
-  attackRangeAir: 0
-  attackSpeed: 1.9
-  attackSpeedAir: 0
-  visionRange: 25
-  manaRegeneration: 0
-  armorType: 2
-  attackType: 1
 --- !u!114 &114153017301890724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -876,6 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: b50c5cd147dbeb346a1bdf628c8769e5, type: 2}
 --- !u!114 &114619785065484176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -898,6 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114696089778939774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -909,6 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: b50c5cd147dbeb346a1bdf628c8769e5, type: 2}
 --- !u!114 &114732924589203412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -921,6 +881,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: b50c5cd147dbeb346a1bdf628c8769e5, type: 2}
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114765604435410016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -932,6 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114984530858829558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -943,7 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  unitInfo: {fileID: 11400000, guid: b50c5cd147dbeb346a1bdf628c8769e5, type: 2}
 --- !u!135 &135989982505106672
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -978,6 +941,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -993,6 +957,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

@@ -334,7 +334,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4174555492553748}
-  - component: {fileID: 114280893487942856}
   - component: {fileID: 114401187293002896}
   - component: {fileID: 114836776321362894}
   - component: {fileID: 114445753266384148}
@@ -1606,6 +1605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114108604829868400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1617,48 +1617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114280893487942856
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1545694567110674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Raider
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 1
-  armorPoint: 5
-  costGold: 250
-  costLumber: 150
-  costPopulation: 4
-  buildTime: 28
-  attackGround: 45
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 450
-  hitPointRegeneration: 1.5
-  movementSpeed: 15
-  attackRange: 6
-  attackRangeAir: 0
-  attackSpeed: 2
-  attackSpeedAir: 0
-  visionRange: 25
-  manaRegeneration: 0
-  armorType: 2
-  attackType: 0
+  unitInfo: {fileID: 11400000, guid: 5dd48a532b66db447a216d835443b485, type: 2}
 --- !u!114 &114401187293002896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1692,7 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  unitInfo: {fileID: 11400000, guid: 5dd48a532b66db447a216d835443b485, type: 2}
 --- !u!114 &114652638169975238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1705,6 +1664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: 5dd48a532b66db447a216d835443b485, type: 2}
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114670559692916380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1716,6 +1677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 5dd48a532b66db447a216d835443b485, type: 2}
 --- !u!114 &114836776321362894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1727,6 +1689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!135 &135289563454400096
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1761,6 +1724,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -1776,6 +1740,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

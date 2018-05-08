@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4585797300104486}
   - component: {fileID: 136193670785298742}
-  - component: {fileID: 114576042299579548}
   - component: {fileID: 114280442391378416}
   - component: {fileID: 114482547287746864}
   - component: {fileID: 114102904605506378}
@@ -73,8 +72,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1845583031405788}
-  m_LocalRotation: {x: -0, y: -0.97863793, z: -0, w: -0.20559129}
-  m_LocalPosition: {x: 49.72, y: 0, z: 60.53}
+  m_LocalRotation: {x: -0, y: 0.95376587, z: -0, w: 0.30055055}
+  m_LocalPosition: {x: 58.18, y: 0, z: 64.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4531525410274728}
@@ -90,6 +89,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -105,6 +105,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -158,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: 8cd648512c564af49a41330d6a540b4f, type: 2}
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114280442391378416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114482547287746864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,48 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114576042299579548
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1845583031405788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Hut
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 0
-  isBuildable: 1
-  hasAttack: 0
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 0
-  armorPoint: 7
-  costGold: 180
-  costLumber: 50
-  costPopulation: 0
-  buildTime: 30
-  attackGround: 0
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 500
-  hitPointRegeneration: 0
-  movementSpeed: 0
-  attackRange: 0
-  attackRangeAir: 0
-  attackSpeed: 0
-  attackSpeedAir: 0
-  visionRange: 10
-  manaRegeneration: 0
-  armorType: 5
-  attackType: 0
+  unitInfo: {fileID: 11400000, guid: 8cd648512c564af49a41330d6a540b4f, type: 2}
 --- !u!114 &114638846086094364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114987124562655646
 MonoBehaviour:
   m_ObjectHideFlags: 1

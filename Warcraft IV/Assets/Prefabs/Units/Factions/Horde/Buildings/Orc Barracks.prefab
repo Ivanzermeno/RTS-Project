@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4984019854195110}
   - component: {fileID: 136392600181316572}
-  - component: {fileID: 114334343749230062}
   - component: {fileID: 114204708508324992}
   - component: {fileID: 114736810658962892}
   - component: {fileID: 114339466010040576}
@@ -91,6 +90,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -106,6 +106,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -161,48 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af94f38fffe4b4e428c863f0d26f086c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114334343749230062
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1021501797093948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Barracks
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 0
-  isBuildable: 1
-  hasAttack: 0
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 0
-  armorPoint: 7
-  costGold: 330
-  costLumber: 110
-  costPopulation: 0
-  buildTime: 50
-  attackGround: 0
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 1000
-  hitPointRegeneration: 0
-  movementSpeed: 0
-  attackRange: 0
-  attackRangeAir: 0
-  attackSpeed: 0
-  attackSpeedAir: 0
-  visionRange: 25
-  manaRegeneration: 0
-  armorType: 5
-  attackType: 0
 --- !u!114 &114339466010040576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,6 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: 6e1e17461758b29488021ce730150ea9, type: 2}
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114451380537886618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114660307787948790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 6e1e17461758b29488021ce730150ea9, type: 2}
 --- !u!114 &114871475607801882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,6 +225,8 @@ MonoBehaviour:
   buttonPic: {fileID: 21300000, guid: 0e53a8d6a36908b409b134a28e9e3628, type: 3}
   indexAction: 0
   prefab: {fileID: 1595303195847722, guid: 5f1fc579fee186b4a87e27870586274a, type: 2}
+  unit: {fileID: 11400000, guid: e777b40c00d7bc041ae29cde1f64e0d4, type: 2}
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114949466340084110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -273,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!136 &136392600181316572
 CapsuleCollider:
   m_ObjectHideFlags: 1

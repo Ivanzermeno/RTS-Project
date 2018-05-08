@@ -8,10 +8,11 @@ using SimpleFogOfWar;
 public class MouseManager : MonoBehaviour
 {
         public static MouseManager Current;
+		public Player player;
 
-        public MouseManager()
+		public MouseManager()
         {
-                Current = this;
+        	Current = this;
         }
 
         [SerializeField] List<Interactive> selections = new List<Interactive>();
@@ -49,16 +50,14 @@ public class MouseManager : MonoBehaviour
                                                 {
                                                         if (FogOfWarSystem.Current.GetVisibility(hit.transform.position) == FogOfWarSystem.FogVisibility.Visible)
                                                         {
-                                                                Unit unit = interact.gameObject.GetComponent<Unit>();
-
-                                                                foreach (Unit u in FindObjectsOfType<Unit>())
+                                                                foreach (Interactive u in FindObjectsOfType<Interactive>())
                                                                 {
-                                                                        if (unit.name == u.name)
-                                                                        {
-                                                                                Interactive sel = u.gameObject.GetComponent<Interactive>();
-                                                                                selections.Add(sel);
-                                                                                sel.Select();  
-                                                                        }
+																		if (u.GetComponent<Highlight>().player.Team == Current.player.Team)
+																		{
+																			Interactive sel = u;
+																			selections.Add(sel);
+																			sel.Select(); 
+																		}
                                                                 }
 
                                                                 isDragSelecting = false;
@@ -89,12 +88,12 @@ public class MouseManager : MonoBehaviour
                         {
                                 foreach (Interactive sel in FindObjectsOfType<Interactive>())
                                 {
-                                        if (IsWithinSelectionBounds(sel.gameObject) && sel.gameObject.tag != "Building" && sel.gameObject.GetComponent<Player>().Info == RTSManager.Current.Players[0])
+										if (IsWithinSelectionBounds(sel.gameObject) && sel.gameObject.tag != "Building" && sel.GetComponent<Highlight>().player.Team == Current.player.Team)
                                         {
                                                 selections.Add(sel);
                                                 sel.Select();
                                         }
-                                        if ((sel.gameObject.tag == "Building" || sel.gameObject.GetComponent<Player>().Info != RTSManager.Current.Players[0]) && selections.Count > 1)
+										if ((sel.gameObject.tag == "Building" || sel.GetComponent<Highlight>().player.Team != Current.player.Team && selections.Count > 1))
                                         {
                                                 sel.Deselect();
                                                 selections.Remove(sel);
@@ -113,38 +112,32 @@ public class MouseManager : MonoBehaviour
                                 {
                                         foreach (Interactive selection in selections)
                                         {
-                                                if (selection.gameObject.GetComponent<Player>().Info == RTSManager.Current.Players[0])
+                                                Pathfinding pathfinding = selection.gameObject.GetComponent<Pathfinding>();
+
+                                                if (hit.collider.tag == "Unit" || hit.collider.tag == "Building")
                                                 {
-                                                        Unit unit = selection.gameObject.GetComponent<Unit>();
-                                                        Pathfinding pathfinding = selection.gameObject.GetComponent<Pathfinding>();
-
-                                                        if (hit.collider.tag == "Unit" || hit.collider.tag == "Building")
+														if (selection.GetComponent<Highlight>().player.Team != Current.player.Team)
                                                         {
-                                                                PlayerSetup Info = hit.collider.gameObject.GetComponent<Player>().Info;
-
-                                                                if (Info.Team != RTSManager.Current.Players[0].Team)
-                                                                {
-                                                                        StartCoroutine(hit.collider.gameObject.GetComponent<Highlight>().Targeted());
-                                                                        selection.GetComponent<Combat>().Aggression(hit.collider.gameObject);
-                                                                }
+                                                                StartCoroutine(hit.collider.gameObject.GetComponent<Highlight>().Targeted());
+                                                                selection.GetComponent<Combat>().Aggression(hit.collider.gameObject);
                                                         }
-                                                        else if (unit.IsMovable)
+                                                }
+                                                else if (pathfinding.unitInfo.IsMovable)
+                                                {
+                                                        if (Selections.Count > 1)
                                                         {
-                                                                if (Selections.Count > 1)
+                                                                centerOffset = Vector3.zero;
+                                                                foreach (Interactive sel in selections)
                                                                 {
-                                                                        centerOffset = Vector3.zero;
-                                                                        foreach (Interactive sel in selections)
-                                                                        {
-                                                                                centerOffset += sel.gameObject.transform.position;
-                                                                        }
-                                                                        centerOffset = centerOffset / selections.Count;
+                                                                        centerOffset += sel.gameObject.transform.position;
+                                                                }
+                                                                centerOffset = centerOffset / selections.Count;
 
-                                                                        pathfinding.SendToTarget(hit.point, centerOffset); 
-                                                                }
-                                                                else
-                                                                {
-                                                                        pathfinding.SendToTarget(hit.point); 
-                                                                }
+                                                                pathfinding.SendToTarget(hit.point, centerOffset); 
+                                                        }
+                                                        else
+                                                        {
+                                                                pathfinding.SendToTarget(hit.point); 
                                                         }
                                                 }
                                         }

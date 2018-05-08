@@ -4,40 +4,28 @@ using UnityEngine;
 
 public class RTSManager : MonoBehaviour 
 {
-        public static RTSManager Current;
+	public static RTSManager Current;
 
-        [SerializeField] List<PlayerSetup> players = new List<PlayerSetup>();
+	public List<Player> players = new List<Player>();
 
-        [SerializeField] TerrainCollider MapCollider;
+	public RTSManager()
+	{
+		Current = this;
+	}
 
-        public RTSManager ()
-        {
-                Current = this;
-        }
+	void OnEnable()
+	{
+		
+	}
 
-        void Awake ()
-        {
-                foreach (PlayerSetup playerSetup in players)
-                {
-                        int count = playerSetup.ActiveUnits.Count;
-                        foreach (GameObject activeUnit in playerSetup.ActiveUnits)
-                        {
-                                Player player = activeUnit.AddComponent<Player>();
-                                player.Info = playerSetup;
-                        }
-                        playerSetup.ActiveUnits.RemoveRange(0, count);
-
-                        foreach (GameObject startingUnit in playerSetup.StartingUnits)
-                        {
-                                GameObject go = (GameObject)GameObject.Instantiate(startingUnit, playerSetup.Location.position, playerSetup.Location.rotation);
-                                Player player = go.AddComponent<Player>();
-                                player.Info = playerSetup;
-                        }
-                }
-        }
-
-        public List<PlayerSetup> Players
-        {
-                get{ return players;}
-        }
+	void Awake() 
+	{
+		foreach (Player player in players)
+		{
+			foreach (GameObject startingUnit in player.StartingUnits)
+			{
+				GameObject go = (GameObject)GameObject.Instantiate (startingUnit, player.Location.position, player.Location.rotation);
+			}
+		}
+	}
 }

@@ -200,7 +200,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4528999265860250}
-  - component: {fileID: 114076188591676308}
   - component: {fileID: 114610905354651564}
   - component: {fileID: 114617177362801592}
   - component: {fileID: 114238727860174652}
@@ -823,48 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114076188591676308
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1595303195847722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Grunt
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 5
-  armorPoint: 2
-  costGold: 180
-  costLumber: 0
-  costPopulation: 3
-  buildTime: 18
-  attackGround: 32
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 215
-  hitPointRegeneration: 3
-  movementSpeed: 7.5
-  attackRange: 4.5
-  attackRangeAir: 0
-  attackSpeed: 2.75
-  attackSpeedAir: 0
-  visionRange: 22.5
-  manaRegeneration: 0
-  armorType: 1
-  attackType: 0
+  unitInfo: {fileID: 11400000, guid: e777b40c00d7bc041ae29cde1f64e0d4, type: 2}
 --- !u!114 &114238727860174652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -887,6 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114610905354651564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -909,6 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114622332788529098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -920,7 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  unitInfo: {fileID: 11400000, guid: e777b40c00d7bc041ae29cde1f64e0d4, type: 2}
 --- !u!114 &114680852561029202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -932,6 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: e777b40c00d7bc041ae29cde1f64e0d4, type: 2}
 --- !u!114 &114736857847407398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -944,6 +905,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: e777b40c00d7bc041ae29cde1f64e0d4, type: 2}
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!135 &135275300228682514
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -978,6 +941,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -993,6 +957,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Highlight : Interaction 
 {
         GameObject displaySelectionCircle;
+		public Player player;
 
         public override void Deselect ()
         {
@@ -16,7 +17,7 @@ public class Highlight : Interaction
                 displaySelectionCircle.SetActive(true);
         }
 	
-	void Start () 
+		void Start () 
         {
                 CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
                 displaySelectionCircle = new GameObject("Highlight", typeof(Projector));
@@ -31,12 +32,11 @@ public class Highlight : Interaction
                 projector.orthographicSize = collider.radius + collider.height;
                 projector.material = Resources.Load("Neutral", typeof(Material)) as Material;
 
-                Player player = gameObject.GetComponent<Player>();
-                if (player.Info.Team == RTSManager.Current.Players[0].Team)
+                if (player.Team == 1)
                 {
                         projector.material = Resources.Load("Friendly", typeof(Material)) as Material;
                 }
-                else if (player.Info.Faction != PlayerSetup.Factions.Neutral)
+                else if (player.Faction != Player.Factions.Neutral)
                 {
                         projector.material = Resources.Load("Hostile", typeof(Material)) as Material;
                 }

@@ -9,6 +9,7 @@ public class Pathfinding : MonoBehaviour
         NavMeshObstacle obstacle;
         Coroutine routine;
         float maxMovementSpeed;
+		public Unit unitInfo;
 
         public void SendToTarget (Vector3 target, Vector3 offset)
         {
@@ -38,13 +39,12 @@ public class Pathfinding : MonoBehaviour
                 
 	void Awake () 
         {
-                Unit unit = gameObject.GetComponent<Unit>();
                 obstacle = gameObject.GetComponent<NavMeshObstacle>();
                 agent = gameObject.GetComponent<NavMeshAgent>();
                 CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
-                maxMovementSpeed = unit.MovementSpeed;
+                maxMovementSpeed = unitInfo.MovementSpeed;
                 agent.angularSpeed = 50000.0f;
-                agent.speed = unit.MovementSpeed;
+                agent.speed = unitInfo.MovementSpeed;
                 agent.acceleration = 10.0f;
                 agent.stoppingDistance = 1.0f;
                 agent.radius = collider.radius;

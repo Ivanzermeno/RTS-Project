@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
+  m_Name: Spellslinger
+  m_EditorClassIdentifier: 
+  name: Spellslinger
+  description: Ranged spellcaster
+  isSelectable: 1
+  isVulnerable: 1
+  isMovable: 1
+  isBuildable: 1
+  hasAttack: 1
+  hasVision: 1
+  hasMana: 0
+  isFlying: 0
+  hitPointRecoveryTime: 3
+  armorPoint: 0
+  costGold: 150
+  costLumber: 30
+  costPopulation: 2
+  buildTime: 25
+  attackGround: 11
+  attackAir: 11
+  manaPool: 0
+  hitPoint: 325
+  hitPointRegeneration: 1.5
+  movementSpeed: 6.5
+  attackRange: 17.5
+  attackRangeAir: 0
+  attackSpeed: 1.75
+  attackSpeedAir: 1.75
+  visionRange: 18
+  manaRegeneration: 3
+  armorType: 0
+  attackType: 3

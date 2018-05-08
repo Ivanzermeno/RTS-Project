@@ -7,8 +7,8 @@ using UnityEngine.AI;
 public class BuildableSite : MonoBehaviour 
 {
         [SerializeField] GameObject buildingPrefab;
-        [SerializeField] PlayerSetup info;
         [SerializeField] Transform source;
+		public Player player;
 
         Renderer rend;
         Color Red = new Color(1, 0, 0, 0.5f);
@@ -38,7 +38,6 @@ public class BuildableSite : MonoBehaviour
                         if (Input.GetMouseButtonDown(0))
                         {
                                 GameObject go = Instantiate(buildingPrefab, gameObject.transform.position, gameObject.transform.rotation);
-                                go.AddComponent<Player>().Info = info;
                                 Destroy(this.gameObject);
                         }
                 }
@@ -91,12 +90,6 @@ public class BuildableSite : MonoBehaviour
         {
                 get { return buildingPrefab; }
                 set { buildingPrefab = value; }
-        }
-
-        public PlayerSetup Info
-        {
-                get { return info; }
-                set { info = value; }
         }
 
         public Transform Source

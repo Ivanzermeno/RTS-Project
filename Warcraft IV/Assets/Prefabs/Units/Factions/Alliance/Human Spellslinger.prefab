@@ -350,7 +350,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4083694019088754}
-  - component: {fileID: 114206861916239096}
   - component: {fileID: 114807419465051854}
   - component: {fileID: 114478864421334252}
   - component: {fileID: 114696810785133996}
@@ -736,49 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1215914447863426, guid: 0eefa749c595fa9449382d5834767cf1, type: 2}
---- !u!114 &114206861916239096
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1985655593929240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Spellslinger
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 1
-  isFlying: 0
-  hitPointRecoveryTime: 2
-  armorPoint: 3
-  costGold: 190
-  costLumber: 60
-  costPopulation: 2
-  buildTime: 21
-  attackGround: 18
-  attackAir: 18
-  manaPool: 300
-  teamNumber: 0
-  hitPoint: 125
-  hitPointRegeneration: 1
-  movementSpeed: 7.5
-  attackRange: 17.5
-  attackRangeAir: 50
-  attackSpeed: 2.2
-  attackSpeedAir: 2.2
-  visionRange: 35
-  manaRegeneration: 1.5
-  armorType: 0
-  attackType: 3
+  unitInfo: {fileID: 11400000, guid: ec0f4d04d298bf244a9614b3618a9349, type: 2}
 --- !u!114 &114466011913588224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -790,6 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: ec0f4d04d298bf244a9614b3618a9349, type: 2}
 --- !u!114 &114478864421334252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -801,6 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114486875582233098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -813,6 +772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: ec0f4d04d298bf244a9614b3618a9349, type: 2}
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114516485060163294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -824,6 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: ec0f4d04d298bf244a9614b3618a9349, type: 2}
 --- !u!114 &114523508182780836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -835,6 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114696810785133996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -891,6 +854,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -906,6 +870,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

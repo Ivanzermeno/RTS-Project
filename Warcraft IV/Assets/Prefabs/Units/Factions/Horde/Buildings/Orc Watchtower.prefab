@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4556103091206528}
   - component: {fileID: 136663058038037982}
-  - component: {fileID: 114909517412021886}
   - component: {fileID: 114880677857780386}
   - component: {fileID: 114147228645902126}
   - component: {fileID: 114797255629309650}
@@ -92,6 +91,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -107,6 +107,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -149,6 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: 4646abd1c64852c4caab9ffe1f8f2f25, type: 2}
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114147228645902126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 4646abd1c64852c4caab9ffe1f8f2f25, type: 2}
 --- !u!114 &114225083297137784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114252263299687698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114286709614018484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  unitInfo: {fileID: 0}
 --- !u!114 &114797255629309650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  unitInfo: {fileID: 11400000, guid: 4646abd1c64852c4caab9ffe1f8f2f25, type: 2}
 --- !u!114 &114880677857780386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,48 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af94f38fffe4b4e428c863f0d26f086c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114909517412021886
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1046015198688614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Watchtower
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 0
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 0
-  armorPoint: 5
-  costGold: 150
-  costLumber: 120
-  costPopulation: 0
-  buildTime: 35
-  attackGround: 16
-  attackAir: 16
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 400
-  hitPointRegeneration: 0
-  movementSpeed: 0
-  attackRange: 17.5
-  attackRangeAir: 25
-  attackSpeed: 1.8
-  attackSpeedAir: 1.8
-  visionRange: 40
-  manaRegeneration: 0
-  armorType: 5
-  attackType: 1
 --- !u!135 &135556757172804412
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0453f0c724d21674a84e877c70d6d70c, type: 3}
+  m_Name: AllianceAI
+  m_EditorClassIdentifier: 
+  name: Alliance
+  faction: 0
+  location: {fileID: 0}
+  accentColor: {r: 0, g: 0, b: 1, a: 1}
+  startingUnits:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  activeUnits: []
+  isAI: 0
+  team: 2
+  gold: 300
+  lumber: 0
+  population: 0
+  maxPopulation: 0

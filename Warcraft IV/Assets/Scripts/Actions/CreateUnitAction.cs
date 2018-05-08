@@ -5,16 +5,10 @@ using UnityEngine;
 public class CreateUnitAction : ActionBehavior
 {
         [SerializeField] GameObject prefab;
-        Unit unit;
-        PlayerSetup player;
+        [SerializeField] Unit unit;
+        [SerializeField] Player player;
         bool isTraining;
 
-	void Start () 
-        {
-                unit = prefab.GetComponent<Unit>();
-                player = GetComponent<Player>().Info;
-	}
-	
         public override System.Action GetClickAction ()
         {
                 return delegate()
@@ -37,7 +31,6 @@ public class CreateUnitAction : ActionBehavior
                 yield return new WaitForSeconds(unit.BuildTime);
                 CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
                 GameObject go = GameObject.Instantiate(prefab, transform.position + new Vector3(0.0f, 0.0f, collider.radius), Quaternion.identity);
-                go.AddComponent<Player>().Info = player;
                 isTraining = false;
         }
 }

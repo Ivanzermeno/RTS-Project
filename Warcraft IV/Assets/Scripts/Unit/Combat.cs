@@ -14,26 +14,20 @@ public class Combat : MonoBehaviour
         float rateAir;
         Coroutine routine; 
         GameObject target;
-        [SerializeField] GameObject projectile;
+		public Unit unitInfo;
 
         void Awake ()
         {
-                Unit unit = gameObject.GetComponent<Unit>();
-                damage = unit.AttackGround;
-                damageAir = unit.AttackAir;
-                range = unit.AttackRange;
-                rangeAir = unit.AttackRangeAir;
-                rate = unit.AttackSpeed;
-                rateAir = unit.AttackSpeedAir;
+                damage = unitInfo.AttackGround;
+                damageAir = unitInfo.AttackAir;
+                range = unitInfo.AttackRange;
+                rangeAir = unitInfo.AttackRangeAir;
+                rate = unitInfo.AttackSpeed;
+                rateAir = unitInfo.AttackSpeedAir;
                 SphereCollider collider = gameObject.GetComponent<SphereCollider>();
                 collider.radius = range;
                 collider.center = gameObject.GetComponent<CapsuleCollider>().center;
                 isAttacking = false;
-        }
-
-        void Start ()
-        {
-                player = gameObject.GetComponent<Player>();
         }
 
         public void Aggression(GameObject unit)
@@ -42,7 +36,7 @@ public class Combat : MonoBehaviour
 
                 if (Vector3.Distance(gameObject.transform.position, target.transform.position) <= range)
                 {
-                        routine = StartCoroutine(Attacking());
+					routine = StartCoroutine(Attacking(target));
                 }
                 else
                 {
@@ -51,17 +45,9 @@ public class Combat : MonoBehaviour
                 }
         }
 
-        IEnumerator Attacking()
+        IEnumerator Attacking(GameObject unit)
         {
-                Unit otherUnit = target.GetComponent<Unit>();
-
-                if (otherUnit.IsFlying && damageAir == 0)
-                {
-                        Stop();
-
-                        yield break;
-                }
-                else if (gameObject.GetComponent<Unit>().AttackType == Unit.Attack.Siege && otherUnit.tag != "Building")
+				if (unit.GetComponent<Combat>().unitInfo.IsFlying && damageAir == 0)
                 {
                         Stop();
 
@@ -103,7 +89,7 @@ public class Combat : MonoBehaviour
 
                         if (target != null && target.GetComponent<Health>().HitPoints > 0)
                         {
-                                routine = StartCoroutine(Attacking());
+								routine = StartCoroutine(Attacking(target));
                         }
                         else
                         {
@@ -116,7 +102,7 @@ public class Combat : MonoBehaviour
         {
                 if (unit.gameObject == target && !unit.isTrigger)
                 {
-                        routine = StartCoroutine(Attacking());
+						routine = StartCoroutine(Attacking(target));
                         gameObject.GetComponent<Pathfinding>().Stop();
                 }
         }
@@ -135,17 +121,15 @@ public class Combat : MonoBehaviour
                 target.GetComponent<Health>().HitPoints = damage;
         }
 
-        void Fire()
-        {
-                GameObject go = Instantiate(projectile, gameObject.transform.position, projectile.transform.rotation);
-                go.GetComponent<Projectile>().Damage = damage;
-                go.GetComponent<Projectile>().Enemy = target;
-        }
-
         public void Stop()
         {
                 target = null;
                 isAttacking = false;
+				if (routine != null)
+				{
+					StopCoroutine(routine);
+				}
+				
         }
 
         public int Attack

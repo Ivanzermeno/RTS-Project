@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4119221071598536}
-  - component: {fileID: 114016186345707634}
   - component: {fileID: 114169941938679824}
   - component: {fileID: 114404127124891550}
   - component: {fileID: 114137476240105868}
@@ -986,48 +985,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114016186345707634
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1039796097998276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Headhunter
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 4
-  armorPoint: 1
-  costGold: 175
-  costLumber: 40
-  costPopulation: 0
-  buildTime: 0
-  attackGround: 22
-  attackAir: 22
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 180
-  hitPointRegeneration: 2
-  movementSpeed: 10
-  attackRange: 12.5
-  attackRangeAir: 25
-  attackSpeed: 1.5
-  attackSpeedAir: 1.5
-  visionRange: 20
-  manaRegeneration: 0
-  armorType: 1
-  attackType: 2
 --- !u!114 &114137476240105868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1062,6 +1019,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: 30376cb6e7df68347bbdb6f8495832d6, type: 2}
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114404127124891550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1073,6 +1032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114452996057382584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1084,7 +1044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1215914447863426, guid: 0eefa749c595fa9449382d5834767cf1, type: 2}
+  unitInfo: {fileID: 11400000, guid: 30376cb6e7df68347bbdb6f8495832d6, type: 2}
 --- !u!114 &114566834891025172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1096,6 +1056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114596746879529854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1107,6 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 30376cb6e7df68347bbdb6f8495832d6, type: 2}
 --- !u!114 &114901759829706446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1118,6 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 30376cb6e7df68347bbdb6f8495832d6, type: 2}
 --- !u!135 &135084694308492794
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1152,6 +1115,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -1167,6 +1131,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

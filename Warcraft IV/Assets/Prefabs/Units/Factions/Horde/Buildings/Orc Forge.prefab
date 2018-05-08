@@ -36,7 +36,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4865836095127888}
-  - component: {fileID: 114825551160080712}
   m_Layer: 0
   m_Name: Orc Forge
   m_TagString: Building
@@ -80,6 +79,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -95,6 +95,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -110,45 +111,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1753987635708592}
   m_Mesh: {fileID: 4300000, guid: 7d7216b826453d247bbb897b5b0ba80f, type: 3}
---- !u!114 &114825551160080712
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918596946588170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Forge
-  description: 
-  isSelectable: 0
-  isVulnerable: 0
-  isMovable: 0
-  isBuildable: 0
-  hasAttack: 0
-  hasVision: 0
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 0
-  armorPoint: 0
-  costGold: 0
-  costLumber: 0
-  costPopulation: 0
-  buildTime: 0
-  attackGround: 0
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 0
-  hitPointRegeneration: 0
-  movementSpeed: 0
-  attackRange: 0
-  attackRangeAir: 0
-  attackSpeed: 0
-  attackSpeedAir: 0
-  visionRange: 0
-  manaRegeneration: 0
-  armorType: 0
-  attackType: 0

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
+  m_Name: Headhunter
+  m_EditorClassIdentifier: 
+  name: Headhunter
+  description: Fast ranged scout
+  isSelectable: 1
+  isVulnerable: 1
+  isMovable: 1
+  isBuildable: 1
+  hasAttack: 1
+  hasVision: 1
+  hasMana: 0
+  isFlying: 0
+  hitPointRecoveryTime: 2
+  armorPoint: 6
+  costGold: 115
+  costLumber: 40
+  costPopulation: 1
+  buildTime: 15
+  attackGround: 25
+  attackAir: 20
+  manaPool: 0
+  hitPoint: 300
+  hitPointRegeneration: 3.5
+  movementSpeed: 13.5
+  attackRange: 10
+  attackRangeAir: 30
+  attackSpeed: 2.25
+  attackSpeedAir: 2.15
+  visionRange: 30
+  manaRegeneration: 0
+  armorType: 0
+  attackType: 1

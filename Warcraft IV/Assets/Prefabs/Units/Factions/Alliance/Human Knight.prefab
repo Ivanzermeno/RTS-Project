@@ -635,7 +635,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4600316496872682}
-  - component: {fileID: 114067943590208562}
   - component: {fileID: 114879635218347692}
   - component: {fileID: 114597644554423744}
   - component: {fileID: 114816261542164424}
@@ -1508,48 +1507,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114067943590208562
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816920391058268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Knight
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 5
-  armorPoint: 5
-  costGold: 300
-  costLumber: 90
-  costPopulation: 4
-  buildTime: 28
-  attackGround: 20
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 550
-  hitPointRegeneration: 4
-  movementSpeed: 13.5
-  attackRange: 7
-  attackRangeAir: 0
-  attackSpeed: 2.5
-  attackSpeedAir: 0
-  visionRange: 30
-  manaRegeneration: 0
-  armorType: 2
-  attackType: 1
 --- !u!114 &114285839290620456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1561,6 +1518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114363868243888898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1572,6 +1530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 138af76a68220064fb29ac7a16807687, type: 2}
 --- !u!114 &114584842758659112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1583,7 +1542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  unitInfo: {fileID: 11400000, guid: 138af76a68220064fb29ac7a16807687, type: 2}
 --- !u!114 &114597644554423744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1595,6 +1554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114680825830986136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1606,6 +1566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 138af76a68220064fb29ac7a16807687, type: 2}
 --- !u!114 &114776701788589584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1618,6 +1579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: 138af76a68220064fb29ac7a16807687, type: 2}
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114816261542164424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1674,6 +1637,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -1689,6 +1653,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

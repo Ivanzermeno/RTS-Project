@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
+  m_Name: Crusader
+  m_EditorClassIdentifier: 
+  name: Crusader
+  description: Heavy, melee spellcaster
+  isSelectable: 1
+  isVulnerable: 1
+  isMovable: 1
+  isBuildable: 1
+  hasAttack: 1
+  hasVision: 1
+  hasMana: 1
+  isFlying: 0
+  hitPointRecoveryTime: 3
+  armorPoint: 14
+  costGold: 420
+  costLumber: 100
+  costPopulation: 7
+  buildTime: 26
+  attackGround: 44
+  attackAir: 0
+  manaPool: 180
+  hitPoint: 3
+  hitPointRegeneration: 3
+  movementSpeed: 6
+  attackRange: 4.5
+  attackRangeAir: 0
+  attackSpeed: 1.85
+  attackSpeedAir: 0
+  visionRange: 10
+  manaRegeneration: 1
+  armorType: 3
+  attackType: 0

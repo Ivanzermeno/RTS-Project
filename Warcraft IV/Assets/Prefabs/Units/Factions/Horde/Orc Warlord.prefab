@@ -290,7 +290,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4658316592931416}
-  - component: {fileID: 114309376819217762}
   - component: {fileID: 114045559893794334}
   - component: {fileID: 114098842164355156}
   - component: {fileID: 114506152323183534}
@@ -1066,6 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114205671540995038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1078,48 +1078,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
---- !u!114 &114309376819217762
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1671188265473384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Warlord
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 5
-  armorPoint: 4
-  costGold: 325
-  costLumber: 180
-  costPopulation: 5
-  buildTime: 45
-  attackGround: 75
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 650
-  hitPointRegeneration: 2.5
-  movementSpeed: 8
-  attackRange: 4.5
-  attackRangeAir: 0
-  attackSpeed: 1.8
-  attackSpeedAir: 0
-  visionRange: 22.5
-  manaRegeneration: 0
-  armorType: 3
-  attackType: 0
+  unitInfo: {fileID: 11400000, guid: 8902818bc1d6ab34a9dce7fd7c6f7060, type: 2}
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114506152323183534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1142,7 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  unitInfo: {fileID: 11400000, guid: 8902818bc1d6ab34a9dce7fd7c6f7060, type: 2}
 --- !u!114 &114622786557461220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1154,6 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114679346473661914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1165,6 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 8902818bc1d6ab34a9dce7fd7c6f7060, type: 2}
 --- !u!114 &114812793382884800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1176,6 +1138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 8902818bc1d6ab34a9dce7fd7c6f7060, type: 2}
 --- !u!135 &135464684811058348
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1210,6 +1173,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -1225,6 +1189,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
+  m_Name: Demolisher
+  m_EditorClassIdentifier: 
+  name: Demolisher
+  description: Artillery weaponry that is effective against buildings
+  isSelectable: 1
+  isVulnerable: 1
+  isMovable: 1
+  isBuildable: 1
+  hasAttack: 1
+  hasVision: 1
+  hasMana: 0
+  isFlying: 0
+  hitPointRecoveryTime: 0
+  armorPoint: 7
+  costGold: 250
+  costLumber: 120
+  costPopulation: 5
+  buildTime: 26
+  attackGround: 125
+  attackAir: 0
+  manaPool: 0
+  hitPoint: 700
+  hitPointRegeneration: 0
+  movementSpeed: 7
+  attackRange: 6
+  attackRangeAir: 0
+  attackSpeed: 3
+  attackSpeedAir: 0
+  visionRange: 11.5
+  manaRegeneration: 0
+  armorType: 5
+  attackType: 5

@@ -16,7 +16,6 @@ public class CreateBuildingAction : ActionBehavior
                         GameObject go = Instantiate(GhostBuildingPrefab);
                         BuildableSite finder = go.AddComponent<BuildableSite>();
                         finder.BuildingPrefab = buildingPrefab;
-                        finder.Info = gameObject.GetComponent<Player>().Info;
                         finder.Source = gameObject.transform;
                         active = go;
                 };

@@ -395,7 +395,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4455499915261432}
-  - component: {fileID: 114670992942727462}
   - component: {fileID: 114271668454062972}
   - component: {fileID: 114148111556570126}
   - component: {fileID: 114362142269250648}
@@ -1258,6 +1257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114238322746328702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1269,6 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114271668454062972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1291,7 +1292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  unitInfo: {fileID: 11400000, guid: 96d4e5224e4b1734eacb59d3071e0aa7, type: 2}
 --- !u!114 &114319273568884580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1303,6 +1304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 96d4e5224e4b1734eacb59d3071e0aa7, type: 2}
 --- !u!114 &114354566281246650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1315,6 +1317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: 96d4e5224e4b1734eacb59d3071e0aa7, type: 2}
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114362142269250648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1326,48 +1330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af94f38fffe4b4e428c863f0d26f086c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114670992942727462
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1647751498721930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Griffin
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 1
-  hitPointRecoveryTime: 5
-  armorPoint: 2
-  costGold: 250
-  costLumber: 100
-  costPopulation: 3
-  buildTime: 32
-  attackGround: 0
-  attackAir: 80
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 330
-  hitPointRegeneration: 2.5
-  movementSpeed: 20
-  attackRange: 5
-  attackRangeAir: 5
-  attackSpeed: 0
-  attackSpeedAir: 2.85
-  visionRange: 0
-  manaRegeneration: 0
-  armorType: 1
-  attackType: 2
 --- !u!114 &114881475247731140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1379,6 +1341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 96d4e5224e4b1734eacb59d3071e0aa7, type: 2}
 --- !u!135 &135702536918312414
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1413,6 +1376,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -1428,6 +1392,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

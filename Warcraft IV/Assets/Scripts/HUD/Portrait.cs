@@ -10,13 +10,14 @@ public class Portrait : MonoBehaviour
         Camera cam;
         Transform unit;
         int randomUnit;
+		public Color color;
 	
         void Awake ()
         {
                 cam = gameObject.GetComponent<Camera>();
         }
 
-	void LateUpdate () 
+		void LateUpdate () 
         {
                 selections = MouseManager.Current.Selections;
                
@@ -57,12 +58,12 @@ public class Portrait : MonoBehaviour
         void CameraSetting()
         {
                 randomUnit = Random.Range(0, selections.Count);
+				color = selections [randomUnit].GetComponent<Highlight>().player.AccentColor;
                 unit = selections[randomUnit].transform;
-                Player info = selections[randomUnit].gameObject.GetComponent<Player>();
                 selections[randomUnit].gameObject.layer = 8;
                 selections[randomUnit].transform.GetChild(0).gameObject.layer = 8; 
                 portraitImage.enabled = true;
-                cam.backgroundColor = info.Info.AccentColor;
+				cam.backgroundColor = color;
         }
 
         void UnitLayering()

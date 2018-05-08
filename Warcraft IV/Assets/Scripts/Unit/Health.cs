@@ -9,10 +9,10 @@ public class Health : MonoBehaviour
         float hitPointRegeneration;
         float hitPointRecoveryTime;
         Coroutine routine;
+		public Unit unitInfo;
 
         void Awake ()
         {
-                Unit unitInfo = gameObject.GetComponent<Unit>();
                 maxHitPoints = unitInfo.HitPoint;
                 hitPoints = maxHitPoints;
                 hitPointRegeneration = -unitInfo.HitPointRegeneration;

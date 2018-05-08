@@ -184,7 +184,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4867177335899242}
-  - component: {fileID: 114386960467226610}
   - component: {fileID: 114435284087116602}
   - component: {fileID: 114584903297592722}
   - component: {fileID: 114041239659696460}
@@ -1647,6 +1646,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: 30e3bd38044c8834c995f0fa986ea864, type: 2}
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114197748806722126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1658,6 +1659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 30e3bd38044c8834c995f0fa986ea864, type: 2}
 --- !u!114 &114245544159514764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1669,6 +1671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114264792046551614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1680,49 +1683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1215914447863426, guid: 0eefa749c595fa9449382d5834767cf1, type: 2}
---- !u!114 &114386960467226610
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1241008530865546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Wyvern
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 1
-  isFlying: 1
-  hitPointRecoveryTime: 3
-  armorPoint: 5
-  costGold: 310
-  costLumber: 110
-  costPopulation: 4
-  buildTime: 40
-  attackGround: 38
-  attackAir: 22
-  manaPool: 200
-  teamNumber: 0
-  hitPoint: 450
-  hitPointRegeneration: 2
-  movementSpeed: 17.5
-  attackRange: 25
-  attackRangeAir: 5
-  attackSpeed: 4.2
-  attackSpeedAir: 2.1
-  visionRange: 50
-  manaRegeneration: 1
-  armorType: 3
-  attackType: 3
+  unitInfo: {fileID: 11400000, guid: 30e3bd38044c8834c995f0fa986ea864, type: 2}
 --- !u!114 &114435284087116602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1745,6 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 9c3fc3fe4707186489e4e9a651bc693e, type: 2}
 --- !u!114 &114679082998659218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1756,6 +1718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 30e3bd38044c8834c995f0fa986ea864, type: 2}
 --- !u!135 &135130097759467152
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1790,6 +1753,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -1805,6 +1769,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

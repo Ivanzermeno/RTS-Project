@@ -154,7 +154,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4669433819357596}
-  - component: {fileID: 114734509315128244}
   - component: {fileID: 114357892684909936}
   - component: {fileID: 114370835955793994}
   - component: {fileID: 114463107506497488}
@@ -852,6 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114357892684909936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -874,6 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!114 &114463107506497488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -896,6 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddc05a9cceb934abbf1c25a8abc032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 208c2fa20cdb365469d979291637861e, type: 2}
 --- !u!114 &114558174923172260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -907,6 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8efb125f3a3d44b96dc477c221ef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: {fileID: 11400000, guid: 208c2fa20cdb365469d979291637861e, type: 2}
 --- !u!114 &114601488416063296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -918,49 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c309115975bf374986f263a3833073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1215914447863426, guid: 0eefa749c595fa9449382d5834767cf1, type: 2}
---- !u!114 &114734509315128244
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1457237768723172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Marksman
-  description: 
-  isSelectable: 1
-  isVulnerable: 1
-  isMovable: 1
-  isBuildable: 1
-  hasAttack: 1
-  hasVision: 1
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 1
-  armorPoint: 3
-  costGold: 100
-  costLumber: 60
-  costPopulation: 0
-  buildTime: 0
-  attackGround: 18
-  attackAir: 18
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 145
-  hitPointRegeneration: 1
-  movementSpeed: 8
-  attackRange: 22.5
-  attackRangeAir: 40
-  attackSpeed: 2
-  attackSpeedAir: 2
-  visionRange: 30
-  manaRegeneration: 0
-  armorType: 1
-  attackType: 1
+  unitInfo: {fileID: 11400000, guid: 208c2fa20cdb365469d979291637861e, type: 2}
 --- !u!114 &114815014014185230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -973,6 +934,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspended: 0
+  unitInfo: {fileID: 11400000, guid: 208c2fa20cdb365469d979291637861e, type: 2}
+  player: {fileID: 11400000, guid: 16e3e059ed1833f44bc29fbb491d19da, type: 2}
 --- !u!135 &135576388946059456
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1007,6 +970,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -1022,6 +986,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

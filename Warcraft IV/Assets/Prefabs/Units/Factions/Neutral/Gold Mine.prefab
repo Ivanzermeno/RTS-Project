@@ -36,13 +36,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4127834657887542}
-  - component: {fileID: 114882668740200104}
   - component: {fileID: 114794692752648208}
   - component: {fileID: 114539211843508366}
   - component: {fileID: 208616782277421762}
   - component: {fileID: 136426070500519318}
   - component: {fileID: 114667079148398198}
-  - component: {fileID: 114184254071463868}
   - component: {fileID: 114976635931162846}
   m_Layer: 0
   m_Name: Gold Mine
@@ -87,6 +85,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -102,6 +101,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -117,30 +117,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216082956748454}
   m_Mesh: {fileID: 4300000, guid: 23969088203ee1640bdccfa1cafa8922, type: 3}
---- !u!114 &114184254071463868
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1814050161416592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc5d993e69f4e7f4199d69f9c5c4d794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info:
-    name: Neutral
-    faction: 2
-    location: {fileID: 0}
-    accentColor: {r: 0.8161765, g: 0.72611564, b: 0, a: 1}
-    startingUnits: []
-    activeUnits: []
-    isAI: 0
-    team: 0
-    gold: 0
-    lumber: 0
-    population: 0
-    maxPopulation: 0
 --- !u!114 &114539211843508366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f11885697304545bc744955072790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: c7157e5031e70b542a19c7125291c426, type: 2}
 --- !u!114 &114794692752648208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,48 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8cac0e46a73b4f971a7c2b67df30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114882668740200104
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1814050161416592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Gold Mine
-  description: 
-  isSelectable: 1
-  isVulnerable: 0
-  isMovable: 0
-  isBuildable: 0
-  hasAttack: 0
-  hasVision: 0
-  hasMana: 0
-  isFlying: 0
-  hitPointRecoveryTime: 0
-  armorPoint: 0
-  costGold: 0
-  costLumber: 0
-  costPopulation: 0
-  buildTime: 0
-  attackGround: 0
-  attackAir: 0
-  manaPool: 0
-  teamNumber: 0
-  hitPoint: 0
-  hitPointRegeneration: 0
-  movementSpeed: 0
-  attackRange: 0
-  attackRangeAir: 0
-  attackSpeed: 0
-  attackSpeedAir: 0
-  visionRange: 0
-  manaRegeneration: 0
-  armorType: 0
-  attackType: 0
+  player: {fileID: 11400000, guid: c7157e5031e70b542a19c7125291c426, type: 2}
 --- !u!114 &114976635931162846
 MonoBehaviour:
   m_ObjectHideFlags: 1

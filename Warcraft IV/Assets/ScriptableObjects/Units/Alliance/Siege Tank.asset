@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfcf584b783c234d85bdde53a4d1339, type: 3}
+  m_Name: Siege Tank
+  m_EditorClassIdentifier: 
+  name: Siege Tank
+  description: Artillery weaponry that is effective against buildings
+  isSelectable: 1
+  isVulnerable: 1
+  isMovable: 1
+  isBuildable: 1
+  hasAttack: 1
+  hasVision: 1
+  hasMana: 0
+  isFlying: 0
+  hitPointRecoveryTime: 0
+  armorPoint: 9
+  costGold: 250
+  costLumber: 120
+  costPopulation: 4
+  buildTime: 27
+  attackGround: 80
+  attackAir: 0
+  manaPool: 0
+  hitPoint: 650
+  hitPointRegeneration: 0
+  movementSpeed: 8
+  attackRange: 15
+  attackRangeAir: 0
+  attackSpeed: 2.75
+  attackSpeedAir: 0
+  visionRange: 11.5
+  manaRegeneration: 0
+  armorType: 5
+  attackType: 5
